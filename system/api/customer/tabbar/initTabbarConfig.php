@@ -15,8 +15,8 @@ $tabbarConfig = $stmt_initTabbarConfig ->fetchALL();
 // var_dump($tabbarConfig);
 for($time = 0;$time<count($tabbarConfig);$time++){
     // echo $tabbarconfigitem['tab_icon'];
-    $tabbarConfig[$time]['tab_icon'] = 'http://localhost/allPHPcode/system/resource/tabbar/'. $tabbarConfig[$time]['tab_icon'];
-    $tabbarConfig[$time]['tab_icon_active'] = 'http://localhost/allPHPcode/system/resource/tabbar/'. $tabbarConfig[$time]['tab_icon_active'];
+    $tabbarConfig[$time]['tab_icon'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/tabbar/'. $tabbarConfig[$time]['tab_icon'];
+    $tabbarConfig[$time]['tab_icon_active'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/tabbar/'. $tabbarConfig[$time]['tab_icon_active'];
     // echo $tabbarconfigitem['tab_icon'];
 }
 // var_dump($tabbarConfig);

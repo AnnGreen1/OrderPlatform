@@ -11,7 +11,7 @@ class DB
   private $_pdo;
   // 定义私有的配置信息对象
   private $config = [
-    'dsn' => 'mysql:host=localhost;dbname=indivialorderplatform;port=3306;charset=utf8',
+    'dsn' => 'mysql:host=localhost;dbname=orderplatform;port=3306;charset=utf8',
     'username' => 'root',
     'password' => '',
     'option' => [

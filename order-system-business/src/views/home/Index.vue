@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <nav-bar class="home-navbar"></nav-bar>
+    <nav-bar class="home-navbar" activeIndex=1></nav-bar>
     <!-- <state-bar class="home-statebar"></state-bar> -->
     <div class="home-container">home.vue</div>
   </div>

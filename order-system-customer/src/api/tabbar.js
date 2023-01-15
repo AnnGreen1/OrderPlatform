@@ -1,6 +1,6 @@
 import request from "@/utils/request";
 
-let base = '/localhost/allPHPcode/system/api/customer';
+let base = '/localhost/allPHPcode/OrderPlatform/system/api/customer';
 
 // 初始化tabbarConfig
 export const initTabbarConfig = data => {

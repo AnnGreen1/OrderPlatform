@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <nav-bar class="banner-navbar"></nav-bar>
+    <nav-bar class="banner-navbar" activeIndex=2></nav-bar>
 
     <div class="banner-container">banner.vue</div>
   </div>

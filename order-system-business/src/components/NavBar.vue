@@ -1,149 +1,88 @@
 <template>
   <div class="navbar">
-    <el-menu
-      default-active="2"
-      :background-color="menu.bgColor"
-      :text-color="menu.textColor"
-      :active-text-color="menu.activeTextColor"
-    >
-      <el-menu-item v-for="(item,index) in menuItems" :key="index" :disabled="item.disable" @click="routeee(item.route)">
+    <el-menu default-active="2" :background-color="menu.bgColor" :text-color="menu.textColor"
+      :active-text-color="menu.activeTextColor">
+      <el-menu-item v-for="(item, index) in menuItems" :key="index" :style="activeIndex == item.index ? activeStyle : ''"
+        :disabled="item.disable" @click="$router.push(item.route)">
         <i :class="item.icon"></i>
         <span slot="title">{{ item.title }}</span>
       </el-menu-item>
     </el-menu>
+
   </div>
 </template>
 
 <script>
+
 export default {
+  props: ['activeIndex'],
   data() {
     return {
-        menu:{
-            bgColor:"#2B3246",
-            textColor:"#fff",
-            activeTextColor:"pink",
+      menu: {
+        bgColor: "#2B3246",
+        textColor: "#fff",
+        activeTextColor: "pink",
+      },
+      activeStyle: {
+        color: 'red'
+      },
+      menuItems: [
+        {
+          index: 1,
+          disable: false,
+          icon: "el-icon-document",
+          title: "首页",
+          route: { path: "/home" }
         },
-        menuItems:[
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"首页",
-                route:{path:"/login"}
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"Banner"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },  {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },  {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-              {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            },
-            {
-                index:2,
-                disable:false,
-                icon:"el-icon-document",
-                title:"导航三"
-            }
-        ]
+        {
+          index: 2,
+          disable: false,
+          icon: "el-icon-document",
+          title: "Banner",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "导航三",
+          route: { path: "/banner" }
+        },
+        {
+          index: 4,
+          disable: false,
+          icon: "el-icon-document",
+          title: "退出",
+          route: { path: "/login" }
+        },
+      ]
     };
   },
   methods: {
-    routeee(route){
-      this.$router.push({path:route})
+    routeee(route) {
+      this.$router.push({ path: route })
     }
   },
-  created() {},
+  created() { },
 };
 </script>
 
 <style lang="scss" scoped>
-.navbar{
- width:200px;
- height:100vh;
- background-color: gray;
-//  overflow-y:scroll;
- overflow-x: hidden;
+.navbar {
+  width: 200px;
+  height: 100vh;
+  background-color: gray;
+  //  overflow-y:scroll;
+  overflow-x: hidden;
+
   /*滚动条整体样式*/
   &::-webkit-scrollbar {
-    width: 10px; /*宽高分别对应横竖滚动条的尺寸*/
+    width: 10px;
+    /*宽高分别对应横竖滚动条的尺寸*/
     height: 1px;
     cursor: pointer;
   }
+
   /*滚动条里面小方块*/
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
@@ -160,6 +99,7 @@ export default {
     //   transparent
     // );
   }
+
   /*滚动条里面轨道*/
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
