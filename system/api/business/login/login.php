@@ -1,89 +1,58 @@
 <?php
 require_once '../../../utils/DB.php';
 
+// 跨域问题处理
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+// header('Access-Control-Allow-Headers:x-requested-with,content-type');
 
 
-
-
+$username = '';
+$password = '';
+$type = 1;
 //  获取前端提交的用户名和密码
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
+$type = $_REQUEST['type'];
 // echo $username . "   " . $password;
+$sqlLogin = '';
+if ($type == 1) {
+    //店铺
+    $sqlLogin = "select * from shop where s_username = '$username' and s_password = '$password'";
+    // echo $sqlLogin;
+    $stmtLogin = DB::getInstance()->connect()->query($sqlLogin);
+    $shop = $stmtLogin->fetch();
+    $msg = array(
+        "code" => "",
+        "userinfo" => "",
+    );
 
-$sqlStuLogin = "select * from user where u_email = '$username'";
-// echo $sqlStuLogin;
-
-$stmtStu = DB::getInstance()->connect()->query($sqlStuLogin);
-
-$stu = $stmtStu->fetch();
-
-$msg = array(
-    "code" => "",
-    "username" => "",
-    
-);
-
-if (empty($stu)) {
-
-    // echo "<script>alert('用户不存在！');history.go(-1);</script>";
-    $msg['code'] = 404;
-    $msg['username'] = "";
-} else {
-    //echo "进入了else";
-    //echo $admin['password'];
-    //是管理员用户，之后判断密码是否正确
-    if ($stu['u_password'] == $password) {
-        // 启用session
-        // session_start();
-        // 将用户名保存到session中
-        // $_SESSION['username'] = $username;
-        // echo "欢迎管理员用户" . $username;
-        // echo "<script>location.href='../view/homepage.php';</script>";
-
-        $msg['code'] = 1001;
-        $msg['username'] = $username;
+    if (empty($shop)) {
+        $msg['code'] = 404;
+        $msg['userinfo'] = "";
     } else {
-        // echo "<script>alert('密码错误！');history.go(-1);</script>";
-        $msg['code'] = -1000;
-        $msg['username'] = "";
+        $msg['code'] = 1001;
+        $msg['userinfo'] = $shop;
     }
+    exit(json_encode($msg));
+} else {
+    //管理员
+    $sqlLogin = "select * from admin where a_username = '$username' and a_password = '$password'";
+    // echo $sqlLogin;
+    $stmtLogin = DB::getInstance()->connect()->query($sqlLogin);
+    $admin = $stmtLogin->fetch();
+    $msg = array(
+        "code" => "",
+        "userinfo" => "",
+    );
+
+    if (empty($admin)) {
+        $msg['code'] = 404;
+        $msg['userinfo'] = $admin;
+    } else {
+
+        $msg['code'] = 1002;
+        $msg['userinfo'] = $admin;
+    }
+    exit(json_encode($msg));
 }
-
-// exit("sf");
-
-exit(json_encode($msg));
-
-
-
-
-// $username = $_POST['username'];
-// $password = $_POST['password'];
-
-// $data = array("status" => false, "msg" => "账号或密码错误");
-
-
-// // $sqlStuLogin = "select * from user where u_email = '$username'";
-// // // echo $sqlStuLogin;
-
-// // $stmtStu = DB::getInstance()->connect()->query($sqlStuLogin);
-
-// // $stu = $stmtStu->fetch();
-
-// if ($username == 'xiaohua@qq.com' && $password == '123') {
-//     $data = array(
-//         "status" => true,
-//         "msg" => "登录成功",
-//         "result" => array(
-//             "userInfo" => array(
-//                 "name" => "青风",
-//                 "star" => 7,
-//                 "phone" => '18555555555',
-//                 "common_address" => [],
-//                 "avatar" => 'http://img.keaitupian.cn/uploads/2021/06/03/db212bbc23c14118b35c23b0db7cd8bd.jpg'
-//             )
-//         )
-//     );
-
-// }
-
-// echo json_encode($data, JSON_UNESCAPED_UNICODE);

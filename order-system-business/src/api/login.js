@@ -6,7 +6,7 @@ let base = '/localhost/allPHPcode/OrderPlatform/system/api/business';
 export const login = data => {
     data = data || {};
     return request({
-        url: `${base}/home/login/login.php`,
+        url: `${base}/login/login.php`,
         method: "post",
         data
     })

@@ -2,8 +2,8 @@
   <div class="navbar">
     <el-menu default-active="2" :background-color="menu.bgColor" :text-color="menu.textColor"
       :active-text-color="menu.activeTextColor">
-      <el-menu-item v-for="(item, index) in menuItems" :key="index" :style="activeIndex == item.index ? activeStyle : ''"
-        :disabled="item.disable" @click="$router.push(item.route)">
+      <el-menu-item v-for="(item, index) in menuItems" :key="index"
+        :style="activeIndex == item.index ? activeStyle : ''" :disabled="item.disable" @click="router(item.route)">
         <i :class="item.icon"></i>
         <span slot="title">{{ item.title }}</span>
       </el-menu-item>
@@ -31,14 +31,49 @@ export default {
           index: 1,
           disable: false,
           icon: "el-icon-document",
-          title: "首页",
+          title: "我的店铺",
           route: { path: "/home" }
         },
         {
           index: 2,
           disable: false,
           icon: "el-icon-document",
-          title: "Banner",
+          title: "首页Banner",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "用户",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "商品管理",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "订单管理",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "原料管理",
+          route: { path: "/banner" }
+        },
+        {
+          index: 3,
+          disable: false,
+          icon: "el-icon-document",
+          title: "tabbar",
           route: { path: "/banner" }
         },
         {
@@ -59,8 +94,13 @@ export default {
     };
   },
   methods: {
-    routeee(route) {
-      this.$router.push({ path: route })
+    router(route) {
+      console.log(route);
+      if (route.path == '/login') {
+        localStorage.setItem('s_username', '');
+        localStorage.setItem('a_username', '');
+      }
+      this.$router.push(route)
     }
   },
   created() { },

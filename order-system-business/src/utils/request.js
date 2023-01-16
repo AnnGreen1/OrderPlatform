@@ -1,23 +1,26 @@
-import axios from "axios"
-
+import axios from "axios";
 
 //创建一个axios对象
 const http = axios.create({
-    timeout: 5000
-})
+  timeout: 5000,
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+});
 
 //设置请求的拦截器
-http.interceptors.request.use(config => {
+http.interceptors.request.use(
+  (config) => {
     // 在这里，可以配置请求头、token等信息
-    return config
-}, error => {
+    return config;
+  },
+  (error) => {
     console.log(error);
-    return Promise.reject(error)
-})
-
+    return Promise.reject(error);
+  }
+);
 
 //设置响应的拦截器
-http.interceptors.response.use(res => {
+http.interceptors.response.use(
+  (res) => {
     //返回的响应数据
     /**
      * res是浏览器对请求响应的处理结果，res.status是http状态码，
@@ -27,30 +30,31 @@ http.interceptors.response.use(res => {
     // console.log(res)
     // console.log(res.data)
 
-
-    const data = res.data
+    const data = res.data;
     if (res.status == 200) {
-        if (data.status == 1 || data.status == 1000) {
-            return Promise.resolve(data)
-        } else {
-            // console.log(data)
-            return Promise.reject(data)
-        }
+      if (data.code > 0) {
+        return Promise.resolve(data);
+      } else {
+        // console.log(data)
+        return Promise.reject(data);
+      }
     }
-}, error => {
+  },
+  (error) => {
     if (error.response.status) {
-        switch (error.response.status) {
-            case 404:
-                alert("请求路径找不到！")
-                break;
-            case 500:
-                alert("服务器内部错误！")
-                break;
-            default:
-                break;
-        }
+      switch (error.response.status) {
+        case 404:
+          alert("请求路径找不到！");
+          break;
+        case 500:
+          alert("服务器内部错误！");
+          break;
+        default:
+          break;
+      }
     }
-    return Promise.reject(error)
-})
+    return Promise.reject(error);
+  }
+);
 
-export default http
+export default http;
