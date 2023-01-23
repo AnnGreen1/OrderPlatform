@@ -41,17 +41,20 @@ export default {
   },
   methods: {
     onSubmit() {
-      login(this.form).then((res)=>{
-            console.log(res)
-            if(res.code == 1001){
-              localStorage.setItem('s_username',res.userinfo.s_username)
-            }else{
-              localStorage.setItem('a_username',res.userinfo.a_username)
-            }
-            this.$router.push({path:'/home',query:{code:res.code}})
-        }).catch((error)=>{
-            console.log(error);
-        })
+      login(this.form).then((res) => {
+        console.log(res)
+        if (res.code == 1001) {
+          localStorage.setItem('s_username', res.userinfo.s_username)
+        } else {
+          localStorage.setItem('a_username', res.userinfo.a_username)
+        }
+        this.$message({
+          message: '欢迎进入商家端'
+        });
+        this.$router.push({ path: '/home', query: { code: res.code } })
+      }).catch((error) => {
+        console.log(error);
+      })
     }
   }
 }
@@ -76,8 +79,9 @@ export default {
     ::v-deep .el-radio__label {
       color: white;
     }
+
     ::v-deep .el-button {
-      width:420px;
+      width: 420px;
     }
   }
 

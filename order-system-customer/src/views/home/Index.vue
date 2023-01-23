@@ -26,7 +26,7 @@
             <img src="@/assets/imgs/home/ForHere-removebg-preview.png" alt="">
           </div>
           <div class="product-item-text">
-            店面用餐
+            店内用餐
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
             <img src="@/assets/imgs/home/TakeAway-removebg-preview.png" alt="">
           </div>
           <div class="product-item-text">
-            打包外带
+            打包自取
           </div>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default {
 
   .product {
     transform: translateY(-1em);
-    border: solid pink;
+    // border: solid pink;
     padding: 10px;
 
     .product-row {
@@ -181,7 +181,7 @@ export default {
         align-items: center;
         width: 150vh;
         height: 18vh;
-        border: solid pink;
+        // border: solid pink;
         padding: 0 20px;
 
         &-img {
