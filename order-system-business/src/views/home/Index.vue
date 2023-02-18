@@ -7,7 +7,10 @@
         <!-- <shop></shop>
         <shop></shop>
         <shop></shop> -->
-        <shop v-for="(shop,index) in shops" :key="index" :shopid="shop.s_id"></shop>
+        
+          <shop v-for="(shop,index) in shops" :key="index" :shop="shop"></shop>
+ 
+        
    
     </div>
   </div>
@@ -46,6 +49,8 @@ export default {
       console.log(res);
       if(res.code==1001){
         this.shops = res.shops;
+        console.log(res.shops);
+        localStorage.setItem('shopid',this.shops[0].s_id)
       }
     }).catch((error)=>{
       console.log(error);
@@ -68,11 +73,7 @@ export default {
     height: 98vh;
     width:calc(100vw - 210px);
     overflow: auto;
-    // &-body{
-    //   width:1800px;
-    //   height:100%;
-    //   border: solid;
-    // }
+  
   }
 }
 </style>

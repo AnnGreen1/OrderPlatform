@@ -11,3 +11,12 @@ export const shops = data => {
         data
     })
 };
+
+export const othershopinfo = data => {
+    data = data || {};
+    return request({
+        url: `${base}/home/othershopinfo.php?shopid=${data.shopid}`,
+        method: "post",
+        data
+    })
+};

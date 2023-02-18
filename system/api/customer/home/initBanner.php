@@ -3,30 +3,39 @@
 require_once '../../../utils/DB.php';
 
 // 跨域问题处理
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-// header('Access-Control-Allow-Headers:x-requested-with,content-type');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
+$shopid = 0;
+$shopid = $_GET['shopid'];
+$shopsql = "select s_bannergroup_id from shop where s_id = $shopid";
+// echo $shopsql;
+$stmt_shop = DB::getInstance()->connect()->query($shopsql);
+// var_dump($stmt_shop);
+$shop = $stmt_shop->fetchALL();
+// var_dump($shop);
+// var_dump($shop[0]["s_bannergroup_id"]);
 
-$sql_initBanner = "select * from banner where banner_status = 1";
-
-$stmt_initBanner = DB::getInstance()->connect()->query($sql_initBanner);
-
-$banner = $stmt_initBanner ->fetchALL();
-// var_dump($tabbarConfig);
-for($time = 0;$time<count($banner);$time++){
+$bannerssql = "SELECT * FROM `banner` where banner_id in ( select banner_id from `bannergroup` where group_id =".$shop[0]['s_bannergroup_id']." )";
+// echo $bannerssql;
+$stmt_banners = DB::getInstance()->connect()->query($bannerssql);
+// var_dump($stmt_banners);
+$banners =$stmt_banners->fetchALL();
+// var_dump($banners);
+for($time = 0;$time<count($banners);$time++){
     // echo $tabbarconfigitem['tab_icon'];
-    $banner[$time]['banner_url'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/banner/'. $banner[$time]['banner_url'];
+    $banners[$time]['banner_url'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/banner/'. $banners[$time]['banner_url'];
     // echo $tabbarconfigitem['tab_icon'];
 
 }
 // var_dump($tabbarConfig);
 $res = array(
     "code" => "",
-    "data" => $banner,
+    "data" => $banners,
     "message" => ""
 );
 
-if (empty($banner)) {
+if (empty($banners)) {
     $res['code'] = 404;
     $res['message'] = "查找失败";
 } else {

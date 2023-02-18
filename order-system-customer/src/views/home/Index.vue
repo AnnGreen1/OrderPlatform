@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     initBanner() {
-      initBanner()
+      initBanner({shopid:parseInt(localStorage.getItem('shopid'))})
         .then((res) => {
           console.log(res);
           if (res && res.code == 1001 && res.data) {
@@ -116,7 +116,7 @@ export default {
   },
   created() {
     console.log(this.$route.query.shopid);
-    localStorage.setItem('shopid', this.$route.query.shopid)
+    localStorage.setItem('shopid', parseInt(this.$route.query.shopid))
     console.log(localStorage.getItem('shopid'));
     this.initBanner()
   },

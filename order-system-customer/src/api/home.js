@@ -6,7 +6,7 @@ let base = '/localhost/allPHPcode/OrderPlatform/system/api/customer';
 export const initBanner = data => {
     data = data || {};
     return request({
-        url: `${base}/home/initBanner.php`,
+        url: `${base}/home/initBanner.php?shopid=${data.shopid}`,
         method: "post",
         data
     })
