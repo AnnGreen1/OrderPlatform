@@ -1,60 +1,79 @@
 <template>
   <div class="home">
-    <nav-bar class="home-navbar" activeIndex=1></nav-bar>
+    <nav-bar class="home-navbar" activeIndex="1"></nav-bar>
     <!-- <state-bar class="home-statebar"></state-bar> -->
     <div class="home-container">
-      
-        <!-- <shop></shop>
+      <!-- <shop></shop>
         <shop></shop>
         <shop></shop> -->
-        
-          <shop v-for="(shop,index) in shops" :key="index" :shop="shop"></shop>
- 
-        
-   
+      <el-select v-model="nowshop" placeholder="请选择" @change="changeshop">
+        <el-option
+          v-for="item in shops"
+          :key="item.s_id"
+          :label="item.s_name"
+          :value="item.s_id"
+        >
+        </el-option>
+      </el-select>
+      <shop v-for="(shop, index) in shops" :key="index" :shop="shop"></shop>
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import shop from "@/views/home/components/shop.vue"
-import { shops } from '@/api/home'
+import shop from "@/views/home/components/shop.vue";
+import { shops } from "@/api/home";
 export default {
   data() {
     return {
-      shops:[]
+      shops: [],
+      nowshop: 1,
     };
   },
   components: {
     "nav-bar": NavBar,
-    "shop":shop
+    shop: shop,
   },
-  methods: {},
+  methods: {
+    changeshop(value) {
+      console.log(value);
+      localStorage.setItem("shopid", value);
+      console.log(localStorage.getItem("shopid"));
+    },
+  },
   created() {
-    console.log(localStorage.getItem('s_username')=='');
-    console.log(localStorage.getItem('a_username'));
+    console.log(localStorage.getItem("s_username") == "");
+    console.log(localStorage.getItem("a_username"));
     //get shopids
-    let param = { }
-    if(localStorage.getItem('s_username')==''){
+    let param = {};
+    if (localStorage.getItem("s_username") == "") {
       //admin
       param.type = 1;
-      param.username = localStorage.getItem('a_username');
-    }else{
+      param.username = localStorage.getItem("a_username");
+    } else {
       //shop
       param.type = 2;
-      param.username = localStorage.getItem('s_username');
+      param.username = localStorage.getItem("s_username");
     }
-    shops(param).then((res)=>{
-      console.log(res);
-      if(res.code==1001){
-        this.shops = res.shops;
-        console.log(res.shops);
-        localStorage.setItem('shopid',this.shops[0].s_id)
-      }
-    }).catch((error)=>{
-      console.log(error);
-    })
+    shops(param)
+      .then((res) => {
+        console.log(res);
+        if (res.code == 1001) {
+          console.log(res.shops);
+          this.shops = res.shops;
+          this.shops.forEach((item) => {
+            item.checked = false;
+          });
+          this.shops[0].checked = true;
+          this.nowshop = res.shops[0];
+          localStorage.setItem("shopid", this.shops[0].s_id);
+          console.log(this.shops);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
@@ -71,9 +90,8 @@ export default {
     left: 210px;
     top: 10px;
     height: 98vh;
-    width:calc(100vw - 210px);
+    width: calc(100vw - 210px);
     overflow: auto;
-  
   }
 }
 </style>
