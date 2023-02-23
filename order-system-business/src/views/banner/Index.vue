@@ -21,7 +21,7 @@ import imgs from "./components/imgs.vue";
 export default {
   data() {
     return {
-      activeName: 'second'
+      activeName: 'first'
     };
   },
   components: {

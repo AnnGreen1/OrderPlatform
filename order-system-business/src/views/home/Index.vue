@@ -6,7 +6,7 @@
       <!-- <shop></shop>
         <shop></shop>
         <shop></shop> -->
-      <el-select v-model="nowshop" placeholder="请选择" @change="changeshop">
+      <el-select v-model="nowshop" placeholder="请选择" size="mini	" @change="changeshop">
         <el-option
           v-for="item in shops"
           :key="item.s_id"
