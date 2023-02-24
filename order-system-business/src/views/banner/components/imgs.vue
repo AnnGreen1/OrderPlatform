@@ -1,20 +1,14 @@
 <template>
   <div class="banner-imgs">
     <div class="banner-imgs-button">
-      <el-button @click="dialogVisible=true">新建</el-button>
+      <el-button @click="dialogVisible = true">添加图片</el-button>
     </div>
     <div class="banner-imgs-table">
       <el-table :data="tableData" border style="width: 100%">
-        <el-table-column prop="banner_id" label="编号" width="180">
-        </el-table-column>
+        <el-table-column prop="banner_id" label="编号" width="180"> </el-table-column>
         <el-table-column prop="banner_url" label="图片">
           <template slot-scope="scope">
-            <img
-              :src="scope.row.banner_url"
-              alt=""
-              srcset=""
-              style="witdh: 10vw; height: 10vh"
-            />
+            <img :src="scope.row.banner_url" alt="" srcset="" style="witdh: 10vw; height: 10vh" />
           </template>
         </el-table-column>
         <el-table-column prop="banner_height" label="高度"> </el-table-column>
@@ -22,28 +16,13 @@
         <el-table-column prop="banner_location" label="位置"> </el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small"
-              >查看</el-button
-            >
+            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
             <el-button type="text" size="small">编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        background
-        layout="total, prev, pager, next"
-        :total="total"
-        :page-size="pageSize"
-        :current-page="pageIndex"
-        @prev-click="prev"
-        @next-click="next"
-      >
-      </el-pagination>
-      <el-dialog
-        title="提示"
-        :visible.sync="dialogVisible"
-        width="30%"
-      >
+      <el-pagination background layout="total, prev, pager, next" :total="total" :page-size="pageSize" :current-page="pageIndex" @prev-click="prev" @next-click="next"> </el-pagination>
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
         <cimg></cimg>
       </el-dialog>
     </div>
@@ -81,7 +60,7 @@ export default {
       total: 0,
       pageIndex: 1,
       pageSize: 2,
-      dialogVisible:false
+      dialogVisible: false,
     };
   },
   components: {

@@ -46,45 +46,45 @@ export default {
           disable: false,
           icon: "el-icon-document",
           title: "用户",
-          route: { path: "/banner" }
+          route: { path: "/user" }
         },
         {
-          index: 3,
+          index: 4,
           disable: false,
           icon: "el-icon-document",
           title: "商品管理",
           route: { path: "/banner" }
         },
         {
-          index: 3,
+          index: 5,
           disable: false,
           icon: "el-icon-document",
           title: "订单管理",
           route: { path: "/banner" }
         },
         {
-          index: 3,
+          index: 6,
           disable: false,
           icon: "el-icon-document",
           title: "原料管理",
           route: { path: "/banner" }
         },
         {
-          index: 3,
+          index: 7,
           disable: false,
           icon: "el-icon-document",
           title: "tabbar",
           route: { path: "/banner" }
         },
         {
-          index: 3,
+          index: 8,
           disable: false,
           icon: "el-icon-document",
           title: "导航三",
           route: { path: "/banner" }
         },
         {
-          index: 4,
+          index: 9,
           disable: false,
           icon: "el-icon-document",
           title: "退出",

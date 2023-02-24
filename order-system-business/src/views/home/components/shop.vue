@@ -8,24 +8,12 @@
                     6、店铺bannner -->
 
     <el-descriptions :title="shop.s_name" :column="3" class="shop-description">
-      <el-descriptions-item label="用户名">{{
-        shop.s_username
-      }}</el-descriptions-item>
-      <el-descriptions-item label="用户数量">{{
-        othershopinfo.usernum
-      }}</el-descriptions-item>
-      <el-descriptions-item label="总营业额">{{
-        shop.s_balance
-      }}</el-descriptions-item>
-      <el-descriptions-item label="tabbar">{{
-        othershopinfo.tabbarname
-      }}</el-descriptions-item>
-      <el-descriptions-item label="banner">{{
-        othershopinfo.bannername
-      }}</el-descriptions-item>
-      <el-descriptions-item label="店铺地址">{{
-        shop.s_address
-      }}</el-descriptions-item>
+      <el-descriptions-item label="用户名">{{ shop.s_username }}</el-descriptions-item>
+      <el-descriptions-item label="用户数量">{{ othershopinfo.usernum }}</el-descriptions-item>
+      <el-descriptions-item label="总营业额">{{ shop.s_balance }}</el-descriptions-item>
+      <el-descriptions-item label="tabbar">{{ othershopinfo.tabbarname }}</el-descriptions-item>
+      <el-descriptions-item label="banner">{{ othershopinfo.bannername }}</el-descriptions-item>
+      <el-descriptions-item label="店铺地址">{{ shop.s_address }}</el-descriptions-item>
     </el-descriptions>
   </div>
 </template>

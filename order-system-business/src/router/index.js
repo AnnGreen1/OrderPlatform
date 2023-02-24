@@ -48,6 +48,11 @@ const routes = [
     path: '/banner',
     name: 'banner',
     component: () => import(/* webpackChunkName: "about" */ '../views/banner/Index.vue')
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: () => import(/* webpackChunkName: "about" */ '../views/user/Index.vue')
   }
 ]
 
