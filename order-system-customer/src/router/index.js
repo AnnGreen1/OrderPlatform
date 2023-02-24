@@ -32,7 +32,7 @@ const routes = [
     path: "/home",
     name: "home",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/home/Index.vue"),
+      import(/* webpackChunkName: "about" */ "../views/home.vue"),
   },
   {
     path: "/order",
