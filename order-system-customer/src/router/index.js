@@ -16,8 +16,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
     path: "/JavascriptAxios",
@@ -25,50 +24,42 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/JavascriptAxios.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/JavascriptAxios.vue"),
   },
   {
     path: "/home",
     name: "home",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/home.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/home.vue"),
   },
   {
     path: "/order",
     name: "order",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/order/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/order/Index.vue"),
   },
   {
     path: "/mine",
     name: "mine",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/mine/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/mine/Index.vue"),
   },
   {
     path: "/tickets",
     name: "ticket",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/tickets/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/tickets/Index.vue"),
   },
   {
     path: "/pay",
     name: "pay",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/pay/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/pay/Index.vue"),
   },
   {
     path: "/home/ForHere",
     name: "home-ForHere",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/home/ForHere/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/home/ForHere/Index.vue"),
   },
   {
     path: "/home/TakeAway",
     name: "home-TakeAway",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/home/TakeAway/Index.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/home/TakeAway/Index.vue"),
   },
 ];
 

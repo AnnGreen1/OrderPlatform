@@ -1,16 +1,16 @@
 <template>
   <div class="home">
     <div class="home-face">
-      <img src="http://localhost/allPHPcode/OrderPlatform/system/resource/home/2(1).png" alt="" style="width: 100%" />
+      <img :src="'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/bg/' + shop.s_bg" alt="" style="width: 100%" />
     </div>
     <div class="home-main">
       <div class="home-main-info">
         <div class="home-main-info-img">
-          <img src="http://localhost/allPHPcode/OrderPlatform/system/resource/home/anngreen.jpeg" alt="" style="width: 100px; height: 100px" />
+          <img :src="'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/logo/' + shop.s_logo" alt="" style="width: 100px; height: 100px" />
         </div>
       </div>
-      <div class="home-main-info-text-top">属小d是dsdsddsd的是的众火锅</div>
-      <div class="home-main-info-text-bottom">档期是的是的那朱 23桌</div>
+      <div class="home-main-info-text-top">{{ shop.s_name }}</div>
+      <div class="home-main-info-text-bottom">当前桌台 {{ params.tableid }}桌</div>
       <div class="home-main-function">
         <van-grid clickable :column-num="2" style="height: 200px; margin-bottom: 10px" icon-size="100px">
           <van-grid-item :icon="meating" text="开始点单" to="/order" id="first" />
@@ -24,11 +24,8 @@
     </div>
     <div class="home-banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item>
-          <img :src="images[0]" style="width:100%;height:200px;" />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img :src="images[1]" style="width:100%;height:200px;" />
+        <van-swipe-item v-for="(banner, index) in banners" :key="index">
+          <img :src="'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/banner/' + banner.banner_url" :width="screenwidth" style="width: 100%; height: 200px" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -36,7 +33,7 @@
 </template>
 
 <script>
-import { initBanner } from "@/api/home";
+import { initshop, initBanner } from "@/api/home";
 export default {
   data() {
     return {
@@ -44,41 +41,72 @@ export default {
       user: require("@/assets/imgs/home/user.svg"),
       certificate: require("@/assets/imgs/home/certificate.svg"),
       order: require("@/assets/imgs/home/order.svg"),
-      screenwidth: screen.width,
-      banner: [],
-      images: ["https://img01.yzcdn.cn/vant/apple-1.jpg", "https://img01.yzcdn.cn/vant/apple-2.jpg"],
+      params: {
+        shopid: 0,
+        tableid: 0,
+      },
+      shop: {},
+      banners: [],
     };
   },
-  methods: {},
-  created() {
-    this.$nextTick(() => {
-      let funtext = document.getElementsByClassName("van-grid-item__content")[0];
-      var para = document.createElement("span");
-      para.setAttribute("class", "van-grid-item__text");
-      para.innerHTML = "快速点单，不用排队";
-      funtext.appendChild(para);
+  methods: {
+    style() {
+      this.$nextTick(() => {
+        let funtext = document.getElementsByClassName("van-grid-item__content")[0];
+        var para = document.createElement("span");
+        para.setAttribute("class", "van-grid-item__text");
+        para.innerHTML = "快速点单，不用排队";
+        funtext.appendChild(para);
 
-      let funtextII = document.getElementsByClassName("van-grid-item__content")[1];
-      var paraII = document.createElement("span");
-      paraII.setAttribute("class", "van-grid-item__text");
-      paraII.innerHTML = "查看订单，会员卡等";
-      funtextII.appendChild(paraII);
+        let funtextII = document.getElementsByClassName("van-grid-item__content")[1];
+        var paraII = document.createElement("span");
+        paraII.setAttribute("class", "van-grid-item__text");
+        paraII.innerHTML = "查看订单，会员卡等";
+        funtextII.appendChild(paraII);
 
-      let funtextIII = document.getElementsByClassName("van-grid-item__text")[0];
-      funtextIII.setAttribute("style", "font-size:16px;color:rgb(41,41,41);");
+        let funtextIII = document.getElementsByClassName("van-grid-item__text")[0];
+        funtextIII.setAttribute("style", "font-size:16px;color:rgb(41,41,41);");
 
-      let funtextIV = document.getElementsByClassName("van-grid-item__text")[2];
-      funtextIV.setAttribute("style", "font-size:16px;color:rgb(41,41,41);");
-    });
-
-    let initBanner_data = { format: "json" };
-    initBanner(initBanner_data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
+        let funtextIV = document.getElementsByClassName("van-grid-item__text")[2];
+        funtextIV.setAttribute("style", "font-size:16px;color:rgb(41,41,41);");
       });
+    },
+    setparams() {
+      this.params.shopid = this.$route.query.shopid;
+      this.params.tableid = this.$route.query.tableid;
+    },
+    initBannerFun() {
+      let data = { shopid: this.params.shopid };
+      initBanner(data)
+        .then((res) => {
+          console.log(res);
+          if (res.code == 2) {
+            this.banners = res.data;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    initShopFun() {
+      let data = { shopid: this.params.shopid };
+      initshop(data)
+        .then((res) => {
+          console.log(res);
+          if (res.code == 1) {
+            this.shop = res.data[0];
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  created() {
+    this.style();
+    this.setparams();
+    this.initShopFun();
+    this.initBannerFun();
   },
 };
 </script>
