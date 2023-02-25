@@ -13,7 +13,7 @@
       <div class="home-main-info-text-bottom">当前桌台 {{ params.tableid }}桌</div>
       <div class="home-main-function">
         <van-grid clickable :column-num="2" style="height: 200px; margin-bottom: 10px" icon-size="100px">
-          <van-grid-item :icon="meating" text="开始点单" to="/order" id="first" />
+          <van-grid-item :icon="meating" text="开始点单" @click="router(1)" id="first" />
           <van-grid-item :icon="user" text="会员中心" id="second" to="mine" />
         </van-grid>
         <van-grid clickable :column-num="2" style="height: 100px; width: 103%; padding-left: 0px; margin: 0 auto" :gutter="10">
@@ -25,7 +25,7 @@
     <div class="home-banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
         <van-swipe-item v-for="(banner, index) in banners" :key="index">
-          <img :src="'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/banner/' + banner.banner_url" :width="screenwidth" style="width: 100%; height: 200px" />
+          <img :src="'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/banner/' + banner.banner_url" style="width: 100%; height: 200px" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -74,6 +74,8 @@ export default {
     setparams() {
       this.params.shopid = this.$route.query.shopid;
       this.params.tableid = this.$route.query.tableid;
+      localStorage.setItem("shopid", this.params.shopid);
+      localStorage.setItem("tableid", this.params.tableid);
     },
     initBannerFun() {
       let data = { shopid: this.params.shopid };
@@ -100,6 +102,12 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    router(type) {
+      if(type==1){
+        // order
+        this.$router.push({ name: "order", query: { shopname: this.shop.s_name, tableid: this.params.tableid } });
+      }
     },
   },
   created() {

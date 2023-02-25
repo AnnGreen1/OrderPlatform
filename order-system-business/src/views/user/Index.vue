@@ -2,10 +2,23 @@
   <div class="user">
     <nav-bar class="banner-navbar" activeIndex="3"></nav-bar>
     <div class="user-container">
-      <el-button type="primary" size="mini">
-        <el-upload action="localhost/allphpcode/upload/upload.php" :on-success="success"> 上传 </el-upload>
-      </el-button>
-      <img src="" alt="" srcset="" />
+      <div class="user-container-form">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+          <el-form-item label="审批人">
+            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+          </el-form-item>
+          <el-form-item label="活动区域">
+            <el-select v-model="formInline.region" placeholder="活动区域">
+              <el-option label="区域一" value="shanghai"></el-option>
+              <el-option label="区域二" value="beijing"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="onSubmit">查询</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+      <div class="user-container-table"></div>
     </div>
   </div>
 </template>
@@ -15,7 +28,12 @@ import NavBar from "@/components/NavBar.vue";
 import { randqinghua } from "@/api/api";
 export default {
   data() {
-    return {};
+    return {
+      formInline: {
+        user: "",
+        region: "",
+      },
+    };
   },
   components: {
     "nav-bar": NavBar,
@@ -25,6 +43,9 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+    },
+    onSubmit() {
+      console.log("submit!");
     },
   },
   created() {

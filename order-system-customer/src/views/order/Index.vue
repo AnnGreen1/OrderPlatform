@@ -1,34 +1,29 @@
 <template>
-    <div>
-        <h1>order</h1>
-    </div>
+  <div class="order">
+    <van-nav-bar class="nav-bar" :title="shopname + ' ' + tableid + ' ' + '号桌'" left-arrow @click-left="router"></van-nav-bar>
+    <h1>order</h1>
+  </div>
 </template>
 
 <script>
-import { initBanner } from "@/api/home";
 export default {
-    data() {
-        return {
-
-        };
+  data() {
+    return {
+      shopname: "",
+      tableid: 0,
+    };
+  },
+  methods: {
+    router() {
+      this.$router.push({ name: "home", query: { shopid: localStorage.getItem("shopid"), tableid: localStorage.getItem("tableid") } });
     },
-    methods: {
-        initBanner() {
-            initBanner()
-                .then((res) => {
-                    console.log(res);
-                    if (res && res.code == 1001 && res.data) {
-                        this.banner = res.data;
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
+    setparams() {
+      this.shopname = this.$route.query.shopname;
+      this.tableid = this.$route.query.tableid;
     },
-    created() {
-
-        this.initBanner()
-    },
+  },
+  created() {
+    this.setparams();
+  },
 };
 </script>

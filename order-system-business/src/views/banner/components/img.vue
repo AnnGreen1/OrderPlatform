@@ -2,7 +2,7 @@
   <div class="img">
     <el-form :label-position="labelPosition" :model="form">
       <el-form-item label="图片">
-        <el-upload action="localhost/allphpcode/upload/upload.php" :on-success="success">
+        <el-upload action="/localhost/allphpcode/OrderPlatform/system/api/upload.php" :on-success="success" :data="{ type: 1 }">
           <el-button type="primary" size="mini">上传 </el-button>
         </el-upload>
       </el-form-item>
@@ -49,8 +49,8 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
-      if (response.code == 0) {
-        this.form.imgurl = response.url;
+      if (response.code == 3) {
+        this.form.imgurl = response.data.url;
         this.$message({
           message: "恭喜你，这是一条成功消息",
           type: "success",
