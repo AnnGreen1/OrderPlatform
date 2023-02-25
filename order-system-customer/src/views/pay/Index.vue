@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>mine</h1>
+        <h1>pay</h1>
     </div>
 </template>
 

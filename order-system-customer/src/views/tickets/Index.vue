@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>mine</h1>
+        <h1>ticket</h1>
     </div>
 </template>
 

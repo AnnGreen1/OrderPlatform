@@ -13,12 +13,12 @@
       <div class="home-main-info-text-bottom">档期是的是的那朱 23桌</div>
       <div class="home-main-function">
         <van-grid clickable :column-num="2" style="height: 200px; margin-bottom: 10px" icon-size="100px">
-          <van-grid-item :icon="meating" text="开始点单" to="/" id="first" />
-          <van-grid-item :icon="user" text="会员中心" url="/vant/mobile.html" id="second" />
+          <van-grid-item :icon="meating" text="开始点单" to="/order" id="first" />
+          <van-grid-item :icon="user" text="会员中心" id="second" to="mine" />
         </van-grid>
         <van-grid clickable :column-num="2" style="height: 100px; width: 103%; padding-left: 0px; margin: 0 auto" :gutter="10">
-          <van-grid-item :icon="order" text="买单" to="/" id="first" />
-          <van-grid-item :icon="certificate" text="优惠券" url="/vant/mobile.html" id="second" />
+          <van-grid-item :icon="order" text="买单" to="/pay" id="first" />
+          <van-grid-item :icon="certificate" text="优惠券" url="tickets" id="second" />
         </van-grid>
       </div>
     </div>
