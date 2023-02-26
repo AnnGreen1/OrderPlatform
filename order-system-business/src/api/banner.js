@@ -11,3 +11,12 @@ export const imgs = data => {
         data
     })
 };
+
+export const addimg = data => {
+    data = data || {};
+    return request({
+        url: `${base}/banner/addimg.php?imgurl=${data.imgurl}&height=${data.height}&width=${data.width}&locationurl=${data.locationurl}`,
+        method: "post",
+        data
+    })
+};

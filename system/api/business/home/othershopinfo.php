@@ -27,7 +27,7 @@ $usernum = $stmt_usernum->fetch();
 
 
 $res = array(
-    "code" => 1001,
+    "code" => 3,
     "data" => array(
        "tabbarname" =>  $tabbarname['tab_tabbar_name'],
        "bannername" => $bannername['group_name'],

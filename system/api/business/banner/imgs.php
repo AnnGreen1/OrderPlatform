@@ -17,7 +17,7 @@ $banner = $stmt_banner->fetchAll();
 
 for($time = 0;$time<count($banner);$time++){
     // echo $tabbarconfigitem['tab_icon'];
-    $banner[$time]['banner_url'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/banner/'. $banner[$time]['banner_url'];
+    $banner[$time]['banner_url'] = 'http://localhost/allPHPcode/OrderPlatform/system/resource/shop/banner/'. $banner[$time]['banner_url'];
     // echo $tabbarconfigitem['tab_icon'];
 
 }
@@ -40,7 +40,7 @@ $total = $stmt_total->fetch();
 
 
 $res = array(
-    "code" => 1002,
+    "code" => 1,
     "data" => array(
         "total" => $total['total'],
         "banner" => $banner

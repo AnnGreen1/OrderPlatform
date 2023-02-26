@@ -7,40 +7,37 @@
         </el-upload>
       </el-form-item>
       <div style="padding-left: 40px" v-if="form.imgurl">
-        <img :src="form.imgurl" alt="" style="witdh: 10vw; height: 10vh" />
+        <img :src="form.url" alt="" style="witdh: 10vw; height: 10vh" />
       </div>
       <el-form-item label="高度">
         <el-input v-model="form.height"></el-input>
       </el-form-item>
       <el-form-item label="宽度">
-        <el-input v-model="form.width" placeholder="审批人"></el-input>
+        <el-input v-model="form.width"></el-input>
       </el-form-item>
-      <el-form-item label="位置">
-        <el-radio-group v-model="form.location">
-          <el-radio :label="1">备选项</el-radio>
-          <el-radio :label="0">备选项</el-radio>
-        </el-radio-group>
+      <el-form-item label="链接">
+        <el-input v-model="form.locationurl" placeholder="url"></el-input>
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" size="mini">取消</el-button>
-        <el-button type="primary" size="mini">确认 </el-button>
+        <el-button type="primary" size="mini" @click="addimgfun">确认 </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import { randqinghua } from "@/api/api";
+import { addimg } from "@/api/banner";
 export default {
   data() {
     return {
       labelPosition: "right",
       form: {
         imgurl: "",
+        url:"",
         height: 0,
         width: 0,
-        location: 0,
+        locationurl: "",
       },
     };
   },
@@ -50,7 +47,8 @@ export default {
       console.log(file);
       console.log(fileList);
       if (response.code == 3) {
-        this.form.imgurl = response.data.url;
+        this.form.url = response.data.url;
+          this.form.imgurl = response.data.name;
         this.$message({
           message: "恭喜你，这是一条成功消息",
           type: "success",
@@ -59,17 +57,22 @@ export default {
         this.$message.error("错了哦，这是一条错误消息");
       }
     },
-  },
-  created() {
-    let randqinghua_data = { format: "json" };
-    randqinghua(randqinghua_data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
+    addimgfun() {
+      addimg(this.form)
+        .then((res) => {
+          console.log(res);
+          if (res.code == 8) {
+            this.$message({
+              message: "添加成功",
+            });
+            this.$emit('changeVisible')
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
 };
 </script>
 

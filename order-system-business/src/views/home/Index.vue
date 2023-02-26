@@ -53,7 +53,7 @@ export default {
     shops(param)
       .then((res) => {
         console.log(res);
-        if (res.code == 1001) {
+        if (res.code == 2) {
           console.log(res.shops);
           this.shops = res.shops;
           this.shops.forEach((item) => {

@@ -23,7 +23,7 @@
       </el-table>
       <el-pagination background layout="total, prev, pager, next" :total="total" :page-size="pageSize" :current-page="pageIndex" @prev-click="prev" @next-click="next"> </el-pagination>
       <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
-        <cimg></cimg>
+        <cimg @changeVisible="changeVsibleFun"></cimg>
       </el-dialog>
     </div>
   </div>
@@ -59,7 +59,7 @@ export default {
       ],
       total: 0,
       pageIndex: 1,
-      pageSize: 2,
+      pageSize: 5,
       dialogVisible: false,
     };
   },
@@ -71,7 +71,7 @@ export default {
       imgs({ pageIndex: pageindex, pageSize: pagesize })
         .then((res) => {
           console.log(res);
-          if (res.code == 1002) {
+          if (res.code == 1) {
             this.total = res.data.total;
             this.tableData = res.data.banner;
           }
@@ -85,6 +85,11 @@ export default {
     },
     next(pageIndex) {
       this.pagedata(pageIndex, this.pageSize);
+    },
+    changeVsibleFun() {
+      this.dialogVisible = !this.dialogVisible;
+      this.pageIndex=1;
+    this.pagedata(this.pageIndex, this.pageSize);
     },
   },
   created() {

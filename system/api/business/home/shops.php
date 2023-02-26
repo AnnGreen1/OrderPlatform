@@ -32,10 +32,10 @@ $stmtShop = DB::getInstance()->connect()->query($sqlShop);
     );
 
     if (empty($Shop)) {
-        $msg['code'] = 404;
+        $msg['code'] = -1;
         $msg['shops'] = $Shop;
     } else {
-        $msg['code'] = 1001;
+        $msg['code'] = 2;
         $msg['shops'] = $Shop;
     }
     exit(json_encode($msg));
