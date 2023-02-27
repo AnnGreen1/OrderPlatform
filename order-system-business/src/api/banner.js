@@ -29,3 +29,21 @@ export const banner = data => {
         data
     })
 };
+
+export const removeimg = data => {
+    data = data || {};
+    return request({
+        url: `${base}/banner/addimg.php?imgurl=${data.imgurl}&height=${data.height}&width=${data.width}&locationurl=${data.locationurl}`,
+        method: "post",
+        data
+    })
+};
+
+export const addbannergroup = data => {
+    data = data || {};
+    return request({
+        url: `${base}/banner/addbannergroup.php`,
+        method: "post",
+        data
+    })
+};

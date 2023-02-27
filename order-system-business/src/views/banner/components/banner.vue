@@ -4,7 +4,7 @@
       <el-form>
         <el-select v-model="groupstatus" placeholder="请选择" size="mini" clearable>
           <el-option key="1" label="使用中" value="1"> </el-option>
-          <el-option key="2" label="未使用" value="2"> </el-option>
+          <el-option key="0" label="未使用" value="0"> </el-option>
         </el-select>
         <el-button type="primary" size="mini" @click="query">查询 </el-button>
       </el-form>
