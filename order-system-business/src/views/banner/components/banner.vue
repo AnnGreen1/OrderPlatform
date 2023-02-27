@@ -16,18 +16,22 @@
         <el-table-column prop="group_status" label="状态" :formatter="formatterGroupStatus"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+            <el-button @click="bannerDetialFun(scope.row)" type="text" size="small">查看</el-button>
             <el-button type="text" size="small" v-if="scope.group_status == 0">使用</el-button>
             <el-button type="text" size="small" v-else>禁用</el-button>
           </template>
         </el-table-column>
       </el-table>
     </div>
+    <el-dialog title="提示" :visible.sync="dialogVisible"  >
+      <cimgs :group_id="bannerDetialing.group_id"></cimgs>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import { banner } from "@/api/banner";
+import imgs from "@/views/banner/components/imgs.vue";
 export default {
   data() {
     return {
@@ -59,7 +63,12 @@ export default {
         //   groupstatus: "使用中",
         // },
       ],
+      dialogVisible: false,
+      bannerDetialing:{}
     };
+  },
+  components: {
+    cimgs: imgs,
   },
   methods: {
     formatterGroupStatus(groupstatus) {
@@ -83,6 +92,11 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    bannerDetialFun(row) {
+      console.log(row);
+      this.bannerDetialing = row;
+      this.dialogVisible = true;
     },
   },
   created() {

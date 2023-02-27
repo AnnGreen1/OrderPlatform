@@ -6,7 +6,7 @@ let base = '/localhost/allPHPcode/OrderPlatform/system/api/business';
 export const imgs = data => {
     data = data || {};
     return request({
-        url: `${base}/banner/imgs.php?pageIndex=${data.pageIndex}&pageSize=${data.pageSize}`,
+        url: `${base}/banner/imgs.php?pageIndex=${data.pageIndex}&pageSize=${data.pageSize}&groupid=${data.groupid}`,
         method: "post",
         data
     })

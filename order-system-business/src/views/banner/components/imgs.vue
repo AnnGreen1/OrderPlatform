@@ -1,7 +1,7 @@
 <template>
   <div class="banner-imgs">
     <div class="banner-imgs-button">
-      <el-button @click="dialogVisible = true">添加图片</el-button>
+      <el-button @click="dialogVisible = true" v-if="!group_id">添加图片</el-button>
     </div>
     <div class="banner-imgs-table">
       <el-table :data="tableData" border style="width: 100%">
@@ -33,6 +33,7 @@
 import { imgs } from "@/api/banner";
 import img from "@/views/banner/components/img.vue";
 export default {
+  props:['group_id'],
   data() {
     return {
       tableData: [
@@ -61,6 +62,7 @@ export default {
       pageIndex: 1,
       pageSize: 5,
       dialogVisible: false,
+      group_id_temp:''
     };
   },
   components: {
@@ -68,7 +70,7 @@ export default {
   },
   methods: {
     pagedata(pageindex, pagesize) {
-      imgs({ pageIndex: pageindex, pageSize: pagesize })
+      imgs({ pageIndex: pageindex, pageSize: pagesize, groupid:this.group_id_temp })
         .then((res) => {
           console.log(res);
           if (res.code == 1) {
@@ -93,6 +95,8 @@ export default {
     },
   },
   created() {
+    this.group_id_temp =  this.group_id;
+    if(!this.group_id) this.group_id_temp = ''
     this.pagedata(this.pageIndex, this.pageSize);
   },
 };
