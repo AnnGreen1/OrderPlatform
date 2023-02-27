@@ -20,3 +20,12 @@ export const addimg = data => {
         data
     })
 };
+
+export const banner = data => {
+    data = data || {};
+    return request({
+        url: `${base}/banner/banner.php?pageIndex=${data.pageIndex}&pageSize=${data.pageSize}&shopid=${data.shopid}&groupstatus=${data.groupstatus}`,
+        method: "post",
+        data
+    })
+};

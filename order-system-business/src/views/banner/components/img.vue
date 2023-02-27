@@ -1,5 +1,5 @@
 <template>
-  <div class="img">
+  <div class="banner-img">
     <el-form :label-position="labelPosition" :model="form">
       <el-form-item label="图片">
         <el-upload action="/localhost/allphpcode/OrderPlatform/system/api/upload.php" :on-success="success" :data="{ type: 1 }">
@@ -34,7 +34,7 @@ export default {
       labelPosition: "right",
       form: {
         imgurl: "",
-        url:"",
+        url: "",
         height: 0,
         width: 0,
         locationurl: "",
@@ -48,7 +48,7 @@ export default {
       console.log(fileList);
       if (response.code == 3) {
         this.form.url = response.data.url;
-          this.form.imgurl = response.data.name;
+        this.form.imgurl = response.data.name;
         this.$message({
           message: "恭喜你，这是一条成功消息",
           type: "success",
@@ -65,19 +65,19 @@ export default {
             this.$message({
               message: "添加成功",
             });
-            this.$emit('changeVisible')
+            this.$emit("changeVisible");
           }
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.img {
+.banner-img {
   margin-left: 30px;
 }
 </style>

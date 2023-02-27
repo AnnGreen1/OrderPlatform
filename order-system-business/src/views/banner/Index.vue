@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <nav-bar class="banner-navbar" activeIndex=2></nav-bar>
+    <nav-bar class="banner-navbar" activeIndex="2"></nav-bar>
     <div class="banner-container">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="图片" name="first">
@@ -21,21 +21,21 @@ import imgs from "./components/imgs.vue";
 export default {
   data() {
     return {
-      activeName: 'first'
+      activeName: "second",
     };
   },
   components: {
     "nav-bar": NavBar,
     banner,
-    imgs
+    imgs,
     // "state-bar": StateBar,
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
-    }
+    },
   },
-  created() { },
+  created() {},
 };
 </script>
 
