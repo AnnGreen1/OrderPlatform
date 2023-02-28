@@ -24,7 +24,7 @@ export default {
         activeTextColor: "pink",
       },
       activeStyle: {
-        color: 'red'
+        color: localStorage.getItem('shopcolor')
       },
       menuItems: [
         {
@@ -53,7 +53,7 @@ export default {
           disable: false,
           icon: "el-icon-document",
           title: "商品管理",
-          route: { path: "/banner" }
+          route: { path: "/goods" }
         },
         {
           index: 5,
@@ -93,6 +93,18 @@ export default {
       ]
     };
   },
+  // computed: {
+	// 	color(){
+	// 		return this.activeStyle.color
+	// 	}	
+	// },
+  // watch: {
+  //   // 如果 `question` 发生改变，这个函数就会运行
+  //   color (newQuestion, oldQuestion) {
+  //     console.log(newQuestion,oldQuestion);
+  //    console.log('change');
+  //   }
+  // },
   methods: {
     router(route) {
       console.log(route);
@@ -103,7 +115,9 @@ export default {
       this.$router.push(route)
     }
   },
-  created() { },
+  created() { 
+    console.log(this.activeStyle);
+  },
 };
 </script>
 

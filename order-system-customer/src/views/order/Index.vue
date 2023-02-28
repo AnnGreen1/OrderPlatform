@@ -1,7 +1,13 @@
 <template>
   <div class="order">
     <van-nav-bar class="nav-bar" :title="shopname + ' ' + tableid + ' ' + '号桌'" left-arrow @click-left="router"></van-nav-bar>
-    <h1>order</h1>
+    <div class="order-container">
+      <van-sidebar v-model="activeKey">
+        <van-sidebar-item title="标签名称" />
+        <van-sidebar-item title="标签名称" />
+        <van-sidebar-item title="标签名称" />
+      </van-sidebar>
+    </div>
   </div>
 </template>
 

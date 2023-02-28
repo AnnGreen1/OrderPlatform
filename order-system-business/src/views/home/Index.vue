@@ -32,8 +32,14 @@ export default {
   methods: {
     changeshop(value) {
       console.log(value);
+      console.log(typeof value);
       localStorage.setItem("shopid", value);
+      let shop = this.shops.find(item => item.s_id == value);
+      console.log(shop);
+      localStorage.setItem("shopcolor", shop.s_color);
       console.log(localStorage.getItem("shopid"));
+      console.log(localStorage.getItem("shopcolor"));
+      // this.$router.push({ path: "/home"});
     },
   },
   created() {
@@ -62,6 +68,7 @@ export default {
           this.shops[0].checked = true;
           this.nowshop = res.shops[0];
           localStorage.setItem("shopid", this.shops[0].s_id);
+          // localStorage.setItem("shopcolor", this.shops[0].s_color);
           console.log(this.shops);
         }
       })
