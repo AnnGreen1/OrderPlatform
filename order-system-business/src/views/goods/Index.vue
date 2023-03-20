@@ -23,6 +23,9 @@
           <el-form-item>
             <el-button type="primary" size="mini" @click="pagedata">查询 </el-button>
           </el-form-item>
+          <el-form-item>
+            <el-button type="primary" size="mini" @click="pagedata">添加 </el-button>
+          </el-form-item>
         </el-form>
       </div>
       <div class="goods-container-table">
@@ -45,7 +48,7 @@
           <el-table-column fixed="right" label="操作" width="150">
             <template>
               <el-button type="text" size="small">删除</el-button>
-              <el-button type="text" size="small">添加banner</el-button>
+              <el-button type="text" size="small">修改</el-button>
             </template>
           </el-table-column>
         </el-table>
