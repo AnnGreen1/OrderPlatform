@@ -6,9 +6,9 @@
         <el-form :inline="true" :model="form">
           <el-form-item label="上架与否">
             <el-select v-model="form.g_status" size="mini">
-              <el-option label="全部" value="2"></el-option>
-              <el-option label="已下架" value="0"></el-option>
-              <el-option label="已上架" value="1"></el-option>
+              <el-option label="全部" :value="2"></el-option>
+              <el-option label="已下架" :value="0"></el-option>
+              <el-option label="已上架" :value="1"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="商品类型">

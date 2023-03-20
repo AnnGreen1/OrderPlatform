@@ -10,6 +10,16 @@ export const randqinghua = data => {
     })
 };
 
+export const wenjianliu = ()=> {
+
+    return request({
+        url: `/localhost/allPHPcode/test/test.xlsx`,
+        method: "post",
+        responseType:'blob'
+    })
+};
+
+
 
 /**
  * ...
