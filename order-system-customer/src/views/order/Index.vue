@@ -20,13 +20,14 @@
         </van-card>
       </div>
     </div>
-    <van-submit-bar :price="price" button-text="提交订单" @submit="onSubmit" />
+    <van-submit-bar :price="price" button-text="提交订单" @submit="onSubmit" :disabled="price == 0" />
   </div>
 </template>
 
 <script>
 import goodtype from "@/utils/enum";
-import { goods } from "@/api/order";
+import { goods, neworder } from "@/api/order";
+import { Dialog } from "vant";
 export default {
   data() {
     return {
@@ -80,6 +81,59 @@ export default {
         this.price += this.goods[i].g_price * parseInt(item);
         i++;
       });
+    },
+    onSubmit() {
+      Dialog.confirm({
+        title: "确认提交",
+        message: "弹窗内容",
+      })
+        .then(() => {
+          let nums = [];
+          let gids = [];
+          // this.num.forEach(item => {
+
+          // })
+          let i = 0;
+          for (i = 0; i < this.num.length; i++) {
+            if (this.num[i] != 0) {
+              nums.push(this.num[i]);
+              gids.push(this.goods[i].g_id);
+            }
+          }
+          console.log(nums);
+          console.log(gids);
+          // let data = {
+          //   username:localStorage.getItem('username'),
+          //   price:
+          // }
+          let price = [];
+          for (i = 0; i < nums.length; i++) {
+            price.push(nums[i] * this.goods[i].g_price);
+          }
+          console.log(nums);
+          console.log(gids);
+          console.log(price);
+          // let data = ;
+          neworder({
+            username:localStorage.getItem('u_username'),
+            price:price,
+            gids:gids,
+            shopid: parseInt(localStorage.getItem("shopid")),
+            nums:nums
+          })
+            .then((res) => {
+              console.log(res);
+              if (res.code == 14) {
+                console.log('成功给你');
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch(() => {
+          // on cancel
+        });
     },
   },
   created() {

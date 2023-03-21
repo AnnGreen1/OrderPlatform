@@ -21,3 +21,11 @@ export const initshop = data => {
     })
 };
 
+export const inituser = data => {
+    data = data || {};
+    return request({
+        url: `${base}/home/initUser.php?shopid=${data.shopid}&username=${data.username}`,
+        method: "post",
+        data
+    })
+};

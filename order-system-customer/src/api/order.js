@@ -12,4 +12,11 @@ export const goods = data => {
     })
 };
 
-
+export const neworder = data => {
+    data = data || {};
+    return request({
+        url: `${base}/order/neworder.php`,
+        method: "post",
+        data
+    })
+};

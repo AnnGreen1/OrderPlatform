@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 28/02/2023 23:20:15
+ Date: 21/03/2023 18:05:54
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `admin`  (
   `a_shopid` int NULL DEFAULT NULL,
   `a_power` int NULL DEFAULT NULL,
   PRIMARY KEY (`a_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin
@@ -47,7 +47,7 @@ CREATE TABLE `banner`  (
   `banner_width` double NOT NULL,
   `banner_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`banner_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of banner
@@ -75,7 +75,7 @@ CREATE TABLE `bannergroup`  (
   `group_status` int NULL DEFAULT NULL,
   `shop_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of bannergroup
@@ -89,6 +89,54 @@ INSERT INTO `bannergroup` VALUES (6, 4, 1, '呃呃呃呃呃呃呃呃呃呃呃', 
 INSERT INTO `bannergroup` VALUES (7, 4, 2, '呃呃呃呃呃呃呃呃呃呃呃', 0, 1);
 INSERT INTO `bannergroup` VALUES (8, 5, 4, '新建的banner组', 0, 1);
 INSERT INTO `bannergroup` VALUES (9, 5, 8, '新建的banner组', 0, 1);
+INSERT INTO `bannergroup` VALUES (10, 6, 1, 'testtesttest', 0, 1);
+INSERT INTO `bannergroup` VALUES (11, 6, 3, 'testtesttest', 0, 1);
+
+-- ----------------------------
+-- Table structure for form
+-- ----------------------------
+DROP TABLE IF EXISTS `form`;
+CREATE TABLE `form`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `f_id` int NOT NULL,
+  `f_u_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_price` int NULL DEFAULT NULL,
+  `f_status` int NULL DEFAULT NULL,
+  `f_g_id` int NULL DEFAULT NULL,
+  `f_num` int NULL DEFAULT NULL,
+  `f_time` int NULL DEFAULT NULL,
+  `f_s_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of form
+-- ----------------------------
+INSERT INTO `form` VALUES (1, 1679384509, 'lesw7vz502', 100, 0, 1, 2, 1679384509, 1);
+INSERT INTO `form` VALUES (2, 1679384509, 'lesw7vz502', 50, 0, 2, 1, 1679384509, 1);
+INSERT INTO `form` VALUES (3, 1679384509, 'lesw7vz502', 300, 0, 3, 6, 1679384509, 1);
+INSERT INTO `form` VALUES (4, 1679386830, 'lesw7vz502', 100, 0, 1, 2, 1679386830, 1);
+INSERT INTO `form` VALUES (5, 1679386830, 'lesw7vz502', 50, 0, 2, 1, 1679386830, 1);
+INSERT INTO `form` VALUES (6, 1679386830, 'lesw7vz502', 300, 0, 3, 6, 1679386830, 1);
+INSERT INTO `form` VALUES (7, 1679389562, 'lesw7vz502', 100, 0, 1, 2, 1679389562, 1);
+INSERT INTO `form` VALUES (8, 1679389869, 'lesw7vz502', 100, 0, 1, 2, 1679389869, 1);
+INSERT INTO `form` VALUES (9, 1679390100, 'lesw7vz502', 100, 0, 1, 2, 1679390100, 1);
+INSERT INTO `form` VALUES (10, 1679390101, 'lesw7vz502', 100, 0, 1, 2, 1679390101, 1);
+INSERT INTO `form` VALUES (11, 1679390112, 'lesw7vz502', 100, 0, 1, 2, 1679390112, 1);
+INSERT INTO `form` VALUES (12, 1679390112, 'lesw7vz502', 50, 0, 2, 1, 1679390112, 1);
+INSERT INTO `form` VALUES (13, 1679390112, 'lesw7vz502', 300, 0, 3, 6, 1679390112, 1);
+INSERT INTO `form` VALUES (14, 1679390129, 'lesw7vz502', 100, 0, 1, 2, 1679390129, 1);
+INSERT INTO `form` VALUES (15, 1679390129, 'lesw7vz502', 50, 0, 2, 1, 1679390129, 1);
+INSERT INTO `form` VALUES (16, 1679390129, 'lesw7vz502', 300, 0, 3, 6, 1679390129, 1);
+INSERT INTO `form` VALUES (17, 1679390463, 'lesw7vz502', 100, 0, 1, 2, 1679390463, 1);
+INSERT INTO `form` VALUES (18, 1679390463, 'lesw7vz502', 50, 0, 2, 1, 1679390463, 1);
+INSERT INTO `form` VALUES (19, 1679390463, 'lesw7vz502', 300, 0, 3, 6, 1679390463, 1);
+INSERT INTO `form` VALUES (20, 1679390643, 'lesw7vz502', 100, 0, 1, 2, 1679390643, 1);
+INSERT INTO `form` VALUES (21, 1679390643, 'lesw7vz502', 50, 0, 2, 1, 1679390643, 1);
+INSERT INTO `form` VALUES (22, 1679390643, 'lesw7vz502', 300, 0, 3, 6, 1679390643, 1);
+INSERT INTO `form` VALUES (23, 1679390822, 'lesw7vz502', 100, 0, 1, 2, 1679390822, 1);
+INSERT INTO `form` VALUES (24, 1679390822, 'lesw7vz502', 50, 0, 2, 1, 1679390822, 1);
+INSERT INTO `form` VALUES (25, 1679390822, 'lesw7vz502', 300, 0, 3, 6, 1679390822, 1);
 
 -- ----------------------------
 -- Table structure for goods
@@ -106,7 +154,7 @@ CREATE TABLE `goods`  (
   `g_shopid` int NULL DEFAULT NULL,
   `g_price` int NULL DEFAULT NULL COMMENT '1000等于十元',
   PRIMARY KEY (`g_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of goods
@@ -160,7 +208,7 @@ CREATE TABLE `power`  (
   `p_id` int NOT NULL,
   `p_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`p_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of power
@@ -185,12 +233,12 @@ CREATE TABLE `shop`  (
   `s_logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `s_color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`s_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES ('admin', 1, '海底捞', 0, 'address', 1, 2, 'haidilao', '111', 1, '2.png', 'haidilao.ico', '#E60012');
+INSERT INTO `shop` VALUES ('admin', 1, '海底捞', 0, 'address', 1, 2, 'haidilao', '111', 1, '2.png', 'haidilao.ico', '#ffffff');
 INSERT INTO `shop` VALUES ('admin', 2, '星巴克', 0, 'address', 2, 2, 'starbuck', '222', 2, '1.png', 'starbuck.png', '#006440');
 INSERT INTO `shop` VALUES ('gly', 3, '活着', 0, 'address', 3, 3, 'shop3', '333', 3, '1.png', 'anngreen.jpeg', NULL);
 
@@ -208,7 +256,7 @@ CREATE TABLE `tabbar`  (
   `tab_tabbar_status` int NULL DEFAULT NULL,
   `tab_tabbar_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`tab_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tabbar
@@ -223,7 +271,7 @@ INSERT INTO `tabbar` VALUES (4, 'mine.png', 'mine_active.png', '我的', '/mine'
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `u_id` int NOT NULL,
+  `u_id` int NOT NULL AUTO_INCREMENT,
   `u_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `u_balance` double NULL DEFAULT NULL,
   `u_payword` int NULL DEFAULT NULL,
@@ -232,11 +280,22 @@ CREATE TABLE `user`  (
   `u_avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `u_shopid` int NULL DEFAULT NULL,
   PRIMARY KEY (`u_id`, `u_username`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (0, '18456772638', 100, 123456, 100, 1668668218, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (1, '18456772638', 100, 123456, 100, 1668668218, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (2, 'ds89fjksdf89sdf8', 0, 111111, 0, 1679369649, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (3, 'xxxxxxxxxxxx', 0, 111111, 0, 1679369524, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (4, 'xxxxxxxxxxxxxxxx', 0, 111111, 0, 1679369501, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (5, 'ds89fjksdf89sdf8', 0, 111111, 0, 1679369672, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (6, 'ds89fjfajskdf78asdf78asd7f8', 0, 111111, 0, 1679369692, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (7, 'anvkm1ba0cw', 0, 111111, 0, 1679369893, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (8, 'anvkm1ba0cw', 0, 111111, 0, 1679369920, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (9, 'anvkm1ba0cw', 0, 111111, 0, 1679369930, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (10, 'anvkm1ba0cw', 0, 111111, 0, 1679369944, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (11, 'undefined', 0, 111111, 0, 1679370068, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (12, 'lesw7vz502', 0, 111111, 0, 1679370165, 'anngreen.jpeg', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

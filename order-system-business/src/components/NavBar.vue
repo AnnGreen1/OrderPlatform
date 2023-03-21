@@ -60,7 +60,7 @@ export default {
           disable: false,
           icon: "el-icon-document",
           title: "订单管理",
-          route: { path: "/banner" }
+          route: { path: "/cart" }
         },
         {
           index: 6,

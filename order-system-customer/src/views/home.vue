@@ -33,7 +33,8 @@
 </template>
 
 <script>
-import { initshop, initBanner } from "@/api/home";
+import { initshop, initBanner, inituser } from "@/api/home";
+import randID from "@/utils/randID";
 export default {
   data() {
     return {
@@ -104,9 +105,28 @@ export default {
         });
     },
     router(type) {
-      if(type==1){
+      if (type == 1) {
         // order
         this.$router.push({ name: "order", query: { shopname: this.shop.s_name, tableid: this.params.tableid } });
+      }
+    },
+    inituser() {
+      console.log(localStorage.getItem("u_username"));
+      if (!localStorage.getItem("u_username")) {
+        localStorage.setItem("u_username", randID());
+        this.u_username = localStorage.getItem("u_username");
+        let data = { shopid: this.params.shopid, username: this.u_username };
+        inituser(data)
+          .then((res) => {
+            console.log(res);
+            if (res.code == 12) {
+              // this.shop = res.data[0];
+              console.log("用户初始化成功");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     },
   },
@@ -115,6 +135,7 @@ export default {
     this.setparams();
     this.initShopFun();
     this.initBannerFun();
+    this.inituser();
   },
 };
 </script>

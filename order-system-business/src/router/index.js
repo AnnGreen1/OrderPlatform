@@ -37,27 +37,32 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/home/Index.vue')
+    component: () => import('../views/home/Index.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/login/Index.vue')
+    component: () => import('../views/login/Index.vue')
   },
   {
     path: '/banner',
     name: 'banner',
-    component: () => import(/* webpackChunkName: "about" */ '../views/banner/Index.vue')
+    component: () => import( '../views/banner/Index.vue')
   },
   {
     path: '/user',
     name: 'user',
-    component: () => import(/* webpackChunkName: "about" */ '../views/user/Index.vue')
+    component: () => import('../views/user/Index.vue')
   },
   {
     path: '/goods',
     name: 'goods',
-    component: () => import(/* webpackChunkName: "about" */ '../views/goods/Index.vue')
+    component: () => import('../views/goods/Index.vue')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/cart/Index.vue')
   }
 ]
 
