@@ -1,24 +1,35 @@
 <template>
-    <div>
-        <h1>pay</h1>
+    <div class="pay">
+        <van-nav-bar class="nav-bar" title="订单列表" left-arrow @click-left="router"></van-nav-bar>
+        <div class="pay-container">
+          <item v-for="(item,index) in formids" :key="index" :formid="item" />
+        </div>
     </div>
 </template>
 
 <script>
-import { initBanner } from "@/api/home";
+import { formids } from "@/api/pay";
+import item from "./components/item.vue";
 export default {
   data() {
     return {
-     
+     formids:[]
     };
   },
-  methods: {},
+  components: {
+    item
+  },
+  methods: {
+    router() {
+      this.$router.push({ name: "home", query: { shopid: localStorage.getItem("shopid"), tableid: localStorage.getItem("tableid") } });
+    },
+  },
   created() {
-    initBanner()
+    formids({username:localStorage.getItem('u_username'),shopid:parseInt(localStorage.getItem('shopid'))})
       .then((res) => {
         console.log(res);
-        if (res && res.code == 1001 && res.data) {
-          this.banner = res.data;
+        if (res.code == 15) {
+          this.formids = res.data.formids;
         }
       })
       .catch((error) => {
@@ -27,3 +38,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.pay{
+  height:auto;
+  .pay-container{
+    // height:500px;
+        //  overflow:
+  }
+}
+</style>

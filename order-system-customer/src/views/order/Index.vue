@@ -119,9 +119,9 @@ export default {
             price:price,
             gids:gids,
             shopid: parseInt(localStorage.getItem("shopid")),
-            nums:nums
-          })
-            .then((res) => {
+            nums:nums,
+            tableid:parseInt(localStorage.getItem("tableid"))
+            }).then((res) => {
               console.log(res);
               if (res.code == 14) {
                 console.log('成功给你');

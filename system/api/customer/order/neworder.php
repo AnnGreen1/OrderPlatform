@@ -22,6 +22,7 @@ $pricep = $_POST['price'];
 $gidsp = $_POST['gids'];
 $numsp = $_POST['nums'];
 $shopid = $_POST['shopid'];
+$tableid = $_POST['tableid'];
 // echo $gidsp ;
 $price = json_decode($pricep,true);
 $gids = json_decode($gidsp, true);
@@ -37,7 +38,7 @@ $res = array(
 );
 $f_id = time();
 for ($time = 0; $time < count($gids); $time++) {
-    $sql_addimg = "insert into `form` values (null, '$f_id', '$username', $price[$time], 0,  $gids[$time],   $nums[$time], $f_id, $shopid)";
+    $sql_addimg = "insert into `form` values (null, '$f_id', '$username', $price[$time], 0,  $gids[$time],   $nums[$time], $f_id, $shopid,$tableid)";
 
     $count = DB::getInstance()->connect()->exec($sql_addimg);
 
