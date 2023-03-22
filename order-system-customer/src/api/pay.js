@@ -11,3 +11,21 @@ export const formids = data => {
         data
     })
 };
+
+export const form = data => {
+    data = data || {};
+    return request({
+        url: `${base}/pay/form.php?username=${data.username}&shopid=${data.shopid}&formid=${data.formid}`,
+        method: "post",
+        data
+    })
+};
+
+export const pay = data => {
+    data = data || {};
+    return request({
+        url: `${base}/pay/pay.php?formid=${data.formid}`,
+        method: "post",
+        data
+    })
+};

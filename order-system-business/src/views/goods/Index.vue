@@ -24,7 +24,7 @@
             <el-button type="primary" size="mini" @click="pagedata">查询 </el-button>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" size="mini" @click="pagedata">添加 </el-button>
+            <el-button type="primary" size="mini" @click="add">添加 </el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -54,6 +54,45 @@
         </el-table>
         <el-pagination background layout="total, prev, pager, next" :total="total" :page-size="pageSize" :current-page="pageIndex" @prev-click="prev" @next-click="next"> </el-pagination>
       </div>
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+        <el-form :label-position="labelPosition" :model="good">
+          <el-form-item label="商品名">
+            <el-input v-model="good.dishName"></el-input>
+          </el-form-item>
+          <el-form-item label="商品描述">
+            <el-input v-model="good.dishDesc"></el-input>
+          </el-form-item>
+          <el-form-item label="图片">
+            <el-upload action="/localhost/allphpcode/OrderPlatform/system/api/upload.php" :on-success="success" :data="{ type: 2 }">
+              <el-button type="primary" size="mini">上传 </el-button>
+            </el-upload>
+          </el-form-item>
+          <div style="padding-left: 40px" v-if="good.imgurl">
+            <img :src="good.url" alt="" style="witdh: 10vw; height: 10vh" />
+          </div>
+          <el-form-item label="类型">
+            <el-radio-group v-model="good.type">
+              <el-radio :label="1">锅底</el-radio>
+              <el-radio :label="2">涮菜</el-radio>
+              <el-radio :label="3">特色饮品</el-radio>
+              <el-radio :label="4">特色蘸料</el-radio>
+              <el-radio :label="5">特色饮品</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="类型">
+            <el-radio-group v-model="good.status">
+              <el-radio :label="1">上架</el-radio>
+              <el-radio :label="0">不上架</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="价格">
+            <el-input v-model="good.price"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" size="mini" @click="addgoodfun">确认 </el-button>
+          </el-form-item>
+        </el-form>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -61,7 +100,7 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import goodtype from "@/utils/enum";
-import { goods } from "@/api/goods";
+import { goods, addgood } from "@/api/goods";
 export default {
   data() {
     return {
@@ -75,6 +114,17 @@ export default {
       total: 0,
       pageIndex: 1,
       pageSize: 5,
+      dialogVisible: false,
+      labelPosition: "right",
+      good: {
+        dishName: "",
+        dishDesc: "",
+        imgurl: "",
+        url: "",
+        type: 0,
+        price: 0,
+        status:0
+      },
     };
   },
   components: {
@@ -108,14 +158,14 @@ export default {
     },
     formatterCreateTime(row) {
       console.log(row);
-      var date = new Date(row.g_createdTime);
+      var date = new Date(row.g_createdTime*1000);
       console.log(date);
       console.log(date.getFullYear());
       return date.toLocaleString();
     },
     formatterPublishTime(row) {
       console.log(row);
-      var date = new Date(row.g_publishTime);
+      var date = new Date(row.g_publishTime*1000);
       console.log(date);
       return date.toLocaleString();
     },
@@ -138,6 +188,46 @@ export default {
       });
       console.log(label);
       return label;
+    },
+    add() {
+      this.dialogVisible = true;
+    },
+    success(response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+      if (response.code == 3) {
+        this.good.url = response.data.url;
+        this.good.imgurl = response.data.name;
+        this.$message({
+          message: "恭喜你，这是一条成功消息",
+          type: "success",
+        });
+      } else {
+        this.$message.error("错了哦，这是一条错误消息");
+      }
+    },
+    addgoodfun() {
+      let data = {
+        dishName: this.good.dishName,
+        dishDesc: this.good.dishDesc,
+        imgurl: this.good.url,
+        type: this.good.type,
+        price: this.good.price,
+        status: this.good.status,
+        shopid: localStorage.getItem("shopid"),
+      };
+      addgood(data)
+        .then((res) => {
+          console.log(res);
+          if (res.code == 18) {
+            this.$message("成功");
+            this.dialogVisible=false;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
   created() {

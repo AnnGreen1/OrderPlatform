@@ -125,7 +125,7 @@ export default {
                   message: res.msg,
                 });
               }
-              this.bannering= [];
+              this.bannering = [];
             })
             .catch((error) => {
               console.log(error);

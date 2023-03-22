@@ -80,8 +80,8 @@ export default {
           index: 8,
           disable: false,
           icon: "el-icon-document",
-          title: "导航三",
-          route: { path: "/banner" }
+          title: "数据分析",
+          route: { path: "/data" }
         },
         {
           index: 9,

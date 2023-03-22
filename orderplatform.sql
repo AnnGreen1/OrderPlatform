@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 21/03/2023 18:05:54
+ Date: 22/03/2023 21:40:04
 */
 
 SET NAMES utf8mb4;
@@ -106,44 +106,45 @@ CREATE TABLE `form`  (
   `f_num` int NULL DEFAULT NULL,
   `f_time` int NULL DEFAULT NULL,
   `f_s_id` int NULL DEFAULT NULL,
+  `f_tableid` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of form
 -- ----------------------------
-INSERT INTO `form` VALUES (1, 1679384509, 'lesw7vz502', 100, 0, 1, 2, 1679384509, 1);
-INSERT INTO `form` VALUES (2, 1679384509, 'lesw7vz502', 50, 0, 2, 1, 1679384509, 1);
-INSERT INTO `form` VALUES (3, 1679384509, 'lesw7vz502', 300, 0, 3, 6, 1679384509, 1);
-INSERT INTO `form` VALUES (4, 1679386830, 'lesw7vz502', 100, 0, 1, 2, 1679386830, 1);
-INSERT INTO `form` VALUES (5, 1679386830, 'lesw7vz502', 50, 0, 2, 1, 1679386830, 1);
-INSERT INTO `form` VALUES (6, 1679386830, 'lesw7vz502', 300, 0, 3, 6, 1679386830, 1);
-INSERT INTO `form` VALUES (7, 1679389562, 'lesw7vz502', 100, 0, 1, 2, 1679389562, 1);
-INSERT INTO `form` VALUES (8, 1679389869, 'lesw7vz502', 100, 0, 1, 2, 1679389869, 1);
-INSERT INTO `form` VALUES (9, 1679390100, 'lesw7vz502', 100, 0, 1, 2, 1679390100, 1);
-INSERT INTO `form` VALUES (10, 1679390101, 'lesw7vz502', 100, 0, 1, 2, 1679390101, 1);
-INSERT INTO `form` VALUES (11, 1679390112, 'lesw7vz502', 100, 0, 1, 2, 1679390112, 1);
-INSERT INTO `form` VALUES (12, 1679390112, 'lesw7vz502', 50, 0, 2, 1, 1679390112, 1);
-INSERT INTO `form` VALUES (13, 1679390112, 'lesw7vz502', 300, 0, 3, 6, 1679390112, 1);
-INSERT INTO `form` VALUES (14, 1679390129, 'lesw7vz502', 100, 0, 1, 2, 1679390129, 1);
-INSERT INTO `form` VALUES (15, 1679390129, 'lesw7vz502', 50, 0, 2, 1, 1679390129, 1);
-INSERT INTO `form` VALUES (16, 1679390129, 'lesw7vz502', 300, 0, 3, 6, 1679390129, 1);
-INSERT INTO `form` VALUES (17, 1679390463, 'lesw7vz502', 100, 0, 1, 2, 1679390463, 1);
-INSERT INTO `form` VALUES (18, 1679390463, 'lesw7vz502', 50, 0, 2, 1, 1679390463, 1);
-INSERT INTO `form` VALUES (19, 1679390463, 'lesw7vz502', 300, 0, 3, 6, 1679390463, 1);
-INSERT INTO `form` VALUES (20, 1679390643, 'lesw7vz502', 100, 0, 1, 2, 1679390643, 1);
-INSERT INTO `form` VALUES (21, 1679390643, 'lesw7vz502', 50, 0, 2, 1, 1679390643, 1);
-INSERT INTO `form` VALUES (22, 1679390643, 'lesw7vz502', 300, 0, 3, 6, 1679390643, 1);
-INSERT INTO `form` VALUES (23, 1679390822, 'lesw7vz502', 100, 0, 1, 2, 1679390822, 1);
-INSERT INTO `form` VALUES (24, 1679390822, 'lesw7vz502', 50, 0, 2, 1, 1679390822, 1);
-INSERT INTO `form` VALUES (25, 1679390822, 'lesw7vz502', 300, 0, 3, 6, 1679390822, 1);
+INSERT INTO `form` VALUES (1, 1679483755, 'lesw7vz502', 100, 3, 1, 2, 1679483755, 1, 1);
+INSERT INTO `form` VALUES (2, 1679483755, 'lesw7vz502', 50, 3, 2, 1, 1679483755, 1, 1);
+INSERT INTO `form` VALUES (3, 1679483755, 'lesw7vz502', 300, 3, 3, 6, 1679483755, 1, 1);
+INSERT INTO `form` VALUES (4, 1679397355, 'lesw7vz502', 100, 3, 1, 2, 1679397355, 1, 1);
+INSERT INTO `form` VALUES (5, 1679397355, 'lesw7vz502', 50, 3, 2, 1, 1679397355, 1, 1);
+INSERT INTO `form` VALUES (6, 1679397355, 'lesw7vz502', 300, 3, 3, 6, 1679397355, 1, 1);
+INSERT INTO `form` VALUES (7, 1679397355, 'lesw7vz502', 100, 1, 1, 2, 1679397355, 1, 1);
+INSERT INTO `form` VALUES (8, 1679310955, 'lesw7vz502', 100, 2, 1, 2, 1679310955, 1, 1);
+INSERT INTO `form` VALUES (9, 1679138155, 'lesw7vz502', 100, 0, 1, 2, 1679138155, 1, 1);
+INSERT INTO `form` VALUES (10, 1679224555, 'lesw7vz502', 100, 0, 1, 2, 1679224555, 1, 1);
+INSERT INTO `form` VALUES (11, 1679051755, 'lesw7vz502', 100, 0, 1, 2, 1679051755, 1, 1);
+INSERT INTO `form` VALUES (12, 1679051755, 'lesw7vz502', 50, 0, 2, 1, 1679051755, 1, 1);
+INSERT INTO `form` VALUES (13, 1679051755, 'lesw7vz502', 300, 0, 3, 6, 1679051755, 1, 1);
+INSERT INTO `form` VALUES (14, 1679015755, 'lesw7vz502', 100, 0, 1, 2, 1679015755, 1, 1);
+INSERT INTO `form` VALUES (15, 1679015755, 'lesw7vz502', 50, 0, 2, 1, 1679015755, 1, 1);
+INSERT INTO `form` VALUES (16, 1679015755, 'lesw7vz502', 300, 0, 3, 6, 1679015755, 1, 1);
+INSERT INTO `form` VALUES (17, 1678929355, 'lesw7vz502', 100, 0, 1, 2, 1678929355, 1, 1);
+INSERT INTO `form` VALUES (18, 1678929355, 'lesw7vz502', 50, 0, 2, 1, 1678929355, 1, 1);
+INSERT INTO `form` VALUES (19, 1678929355, 'lesw7vz502', 300, 0, 3, 6, 1678929355, 1, 1);
+INSERT INTO `form` VALUES (20, 1678842955, 'lesw7vz502', 100, 0, 1, 2, 1678842955, 1, 1);
+INSERT INTO `form` VALUES (21, 1678842955, 'lesw7vz502', 50, 0, 2, 1, 1678842955, 1, 1);
+INSERT INTO `form` VALUES (22, 1678842955, 'lesw7vz502', 300, 0, 3, 6, 1678842955, 1, 1);
+INSERT INTO `form` VALUES (23, 1678756555, 'lesw7vz502', 100, 0, 1, 2, 1678756555, 1, 1);
+INSERT INTO `form` VALUES (24, 1678756555, 'lesw7vz502', 50, 0, 2, 1, 1678756555, 1, 1);
+INSERT INTO `form` VALUES (25, 1678756555, 'lesw7vz502', 300, 0, 3, 6, 1678756555, 1, 1);
 
 -- ----------------------------
 -- Table structure for goods
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods`  (
-  `g_id` int NOT NULL,
+  `g_id` int NOT NULL AUTO_INCREMENT,
   `g_dishName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `g_status` int NULL DEFAULT NULL COMMENT '0：下架；1：上架；',
   `g_dishDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -154,7 +155,7 @@ CREATE TABLE `goods`  (
   `g_shopid` int NULL DEFAULT NULL,
   `g_price` int NULL DEFAULT NULL COMMENT '1000等于十元',
   PRIMARY KEY (`g_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of goods
@@ -199,6 +200,11 @@ INSERT INTO `goods` VALUES (36, '热卤耙鸡爪', 1, '卤香十足、口感软�
 INSERT INTO `goods` VALUES (37, '热卤耙肥肠', 1, '口感劲道，卤味独特。', 'https://website.hdlcdns.com/website/image/41d044612a6e4088b16346b4b7ed3221-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
 INSERT INTO `goods` VALUES (38, '热卤大片素板筋', 1, '筋道弹韧 吮指回味（微辣）', 'https://website.hdlcdns.com/website/image/93cd4a3b0cc74c30ac7dd17b2289261d-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
 INSERT INTO `goods` VALUES (39, '热卤四大天王', 1, '卤香浓郁、肥而不腻（微辣）', 'https://website.hdlcdns.com/website/image/259375dbcb854062b3a187deba56f09c-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
+INSERT INTO `goods` VALUES (41, '测试测试测试火锅', 1, '测试测试火锅的描述', 'http://hfkajfdadf.iifadskf.jpg', 1679469557, 1679469557, 1, 1, 20000);
+INSERT INTO `goods` VALUES (42, '商品名', 0, '描述', 'boat.jpg', 1679470934, NULL, 0, 1, 0);
+INSERT INTO `goods` VALUES (43, '图片测试', 0, '名名', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/7.jpg', 1679471011, NULL, 0, 1, 0);
+INSERT INTO `goods` VALUES (44, '应该没有问题', 0, '秒怂虎', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/img-16408608730070d6aa1d00db1e046e45a5628db3c341c.jpg', 1679471135, NULL, 0, 1, 0);
+INSERT INTO `goods` VALUES (45, '名', 0, '描述', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/cat.jpeg', 1679471288, NULL, 5, 1, 2323);
 
 -- ----------------------------
 -- Table structure for power

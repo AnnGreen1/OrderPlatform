@@ -39,6 +39,20 @@ if ($file["error"] > 0) {
             $res['msg'] = "fail";
         }
     }
+    if((int)$_POST['type'] === 2){
+        # banner
+        if (move_uploaded_file($tmpName, "../resource/shop/goods/$name")) {
+            # 图片存储成功则返回一个 img 标签，并展示此图片
+            // echo "<img src='http://localhost:8080/allPHPCode/ElementPaginationDemo/$name'>";
+            $res['data']['name'] = $name;
+            $res['data']['url'] = "http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/$name";
+        } else {
+            # 提示出现错误
+            // echo "文件上传失败！";
+            $res['code'] = -3;
+            $res['msg'] = "fail";
+        }
+    }
     
 }
 

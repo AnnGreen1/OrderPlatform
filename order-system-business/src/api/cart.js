@@ -20,3 +20,12 @@ export const good = data => {
         data
     })
 };
+
+export const formstatus = data => {
+    data = data || {};
+    return request({
+        url: `/localhost/allPHPcode/OrderPlatform/system/api/business/cart/formstatus.php`,
+        method: "post",
+        data
+    })
+};

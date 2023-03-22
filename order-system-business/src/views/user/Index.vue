@@ -2,61 +2,64 @@
   <div class="user">
     <nav-bar class="banner-navbar" activeIndex="3"></nav-bar>
     <div class="user-container">
-      <div class="user-container-form">
-        <el-form :inline="true" :model="formInline" class="demo-form-inline">
-          <el-form-item label="类型">
-            <el-input v-model="formInline.user" placeholder="请选择类型" size="mini"></el-input>
-          </el-form-item>
-          <el-form-item label="活动区域">
-            <el-select v-model="formInline.region" placeholder="活动区域" size="mini">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="onSubmit" size="mini">查询</el-button>
-          </el-form-item>
-        </el-form>
+      <div class="user-container-table">
+        <el-table :data="tableData" border style="width: 100%">
+          <el-table-column prop="u_id" label="编号" width="180"> </el-table-column>
+          <el-table-column prop="u_username" label="用户名" width="180"> </el-table-column>
+          <el-table-column prop="u_avatar" label="头像">
+            <template slot-scope="scope">
+              <img :src="'http://localhost/allPHPCode/OrderPlatform/system/resource/user/' + scope.row.u_avatar" alt="" srcset="" style="witdh: 10vw; height: 10vh" />
+            </template>
+          </el-table-column>
+          <el-table-column prop="u_balance" label="消费金额"> </el-table-column>
+          <el-table-column prop="u_expirestime" label="注册时间"> </el-table-column>
+          <el-table-column prop="u_payword" label="支付密码"> </el-table-column>
+          <el-table-column prop="u_score" label="积分"> </el-table-column>
+        </el-table>
+        <el-pagination background layout="total, prev, pager, next" :total="total" :page-size="pageSize" :current-page="pageIndex" @prev-click="prev" @next-click="next"> </el-pagination>
       </div>
-      <div class="user-container-table"></div>
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import { randqinghua } from "@/api/api";
+import { users } from "@/api/user";
 export default {
   data() {
     return {
-      formInline: {
-        user: "",
-        region: "",
-      },
+      total: 0,
+      pageIndex: 1,
+      pageSize: 5,
+      tableData: [],
     };
   },
   components: {
     "nav-bar": NavBar,
   },
   methods: {
-    success(response, file, fileList) {
-      console.log(response);
-      console.log(file);
-      console.log(fileList);
+    pagedata(pageindex, pagesize) {
+      users({ pageIndex: pageindex, pageSize: pagesize, shopid: localStorage.getItem("shopid") })
+        .then((res) => {
+          console.log(res);
+          if (res.code == 19) {
+            this.total = res.data.total;
+            this.tableData = res.data.users;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-    onSubmit() {
-      console.log("submit!");
+    prev(pageIndex) {
+      this.pagedata(pageIndex, this.pageSize);
+    },
+    next(pageIndex) {
+      this.pagedata(pageIndex, this.pageSize);
     },
   },
   created() {
-    let randqinghua_data = { format: "json" };
-    randqinghua(randqinghua_data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.pagedata(this.pageIndex, this.pageSize);
   },
 };
 </script>
