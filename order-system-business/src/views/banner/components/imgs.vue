@@ -40,26 +40,7 @@ export default {
   data() {
     return {
       tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
-        },
+        
       ],
       total: 0,
       pageIndex: 1,
@@ -76,7 +57,6 @@ export default {
     pagedata(pageindex, pagesize) {
       imgs({ pageIndex: pageindex, pageSize: pagesize, groupid: this.group_id_temp })
         .then((res) => {
-          console.log(res);
           if (res.code == 1) {
             this.total = res.data.total;
             this.tableData = res.data.banner;
@@ -98,13 +78,9 @@ export default {
       this.pagedata(this.pageIndex, this.pageSize);
     },
     addbanner(row) {
-      console.log(row);
-      console.log(row.banner_id);
       if (!this.bannering.includes(row.banner_id)) this.bannering.push(row.banner_id);
-      console.log(this.bannering);
     },
     addbannergroupFun() {
-      // this.addBannerdialogVisible = true;
       this.$prompt("请输入组名", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
@@ -115,7 +91,6 @@ export default {
             bannerids: this.bannering,
             shopid: localStorage.getItem("shopid"),
           };
-          console.log(data);
           addbannergroup(data)
             .then((res) => {
               console.log(res);

@@ -90,9 +90,6 @@ export default {
         .then(() => {
           let nums = [];
           let gids = [];
-          // this.num.forEach(item => {
-
-          // })
           let i = 0;
           for (i = 0; i < this.num.length; i++) {
             if (this.num[i] != 0) {
@@ -102,10 +99,6 @@ export default {
           }
           console.log(nums);
           console.log(gids);
-          // let data = {
-          //   username:localStorage.getItem('username'),
-          //   price:
-          // }
           let price = [];
           for (i = 0; i < nums.length; i++) {
             price.push(nums[i] * this.goods[i].g_price);

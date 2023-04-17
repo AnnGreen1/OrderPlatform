@@ -1,9 +1,8 @@
 <template>
-<div>
+  <div>
     <button @click="fun">渲染</button>
-    
-  <div class="echart" id="mycharts" :style="myChartStyle"></div>
-</div>
+    <div class="echart" id="mycharts" :style="myChartStyle"></div>
+  </div>
 </template>
 
 <script>
@@ -12,7 +11,7 @@ import { balance } from "@/api/data";
 export default {
   data() {
     return {
-        data:[],
+      data: [],
       xData: [], //横坐标
       yData: [], //数据
       myChartStyle: { float: "left", width: "100%", height: "400px" }, //图表样式
@@ -46,7 +45,6 @@ export default {
       });
     },
     getday2() {
-      //   let days = [];
       for (let i = 0; i < 7; i++) {
         //今天加上前6天
         const date = new Date();
@@ -58,15 +56,15 @@ export default {
       }
       console.log("最近七天日期：", this.xData);
     },
-    fun(){
-        this.data.forEach((item) => {
-          console.log(item);
-          this.yData.push(item);
-        });
-        this.$nextTick(() => {
-      this.initEcharts();
-    });
-    }
+    fun() {
+      this.data.forEach((item) => {
+        console.log(item);
+        this.yData.push(item);
+      });
+      this.$nextTick(() => {
+        this.initEcharts();
+      });
+    },
   },
   created() {
     this.getday2();
@@ -93,12 +91,7 @@ export default {
         });
       time++;
     }
-    // this.yData = data;
-    console.log(this.yData);
-    console.log(data);
-    this.data =data;
-
-    
+    this.data = data;
   },
 };
 </script>

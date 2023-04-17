@@ -1,11 +1,7 @@
 <template>
   <div class="home">
     <nav-bar class="home-navbar" activeIndex="1"></nav-bar>
-    <!-- <state-bar class="home-statebar"></state-bar> -->
     <div class="home-container">
-      <!-- <shop></shop>
-        <shop></shop>
-        <shop></shop> -->
       <el-select v-model="nowshop" placeholder="请选择" size="mini	" @change="changeshop">
         <el-option v-for="item in shops" :key="item.s_id" :label="item.s_name" :value="item.s_id"> </el-option>
       </el-select>
@@ -31,20 +27,12 @@ export default {
   },
   methods: {
     changeshop(value) {
-      console.log(value);
-      console.log(typeof value);
       localStorage.setItem("shopid", value);
-      let shop = this.shops.find(item => item.s_id == value);
-      console.log(shop);
+      let shop = this.shops.find((item) => item.s_id == value);
       localStorage.setItem("shopcolor", shop.s_color);
-      console.log(localStorage.getItem("shopid"));
-      console.log(localStorage.getItem("shopcolor"));
-      // this.$router.push({ path: "/home"});
     },
   },
   created() {
-    console.log(localStorage.getItem("s_username") == "");
-    console.log(localStorage.getItem("a_username"));
     //get shopids
     let param = {};
     if (localStorage.getItem("s_username") == "") {
@@ -58,9 +46,7 @@ export default {
     }
     shops(param)
       .then((res) => {
-        console.log(res);
         if (res.code == 2) {
-          console.log(res.shops);
           this.shops = res.shops;
           this.shops.forEach((item) => {
             item.checked = false;
@@ -68,8 +54,6 @@ export default {
           this.shops[0].checked = true;
           this.nowshop = res.shops[0];
           localStorage.setItem("shopid", this.shops[0].s_id);
-          // localStorage.setItem("shopcolor", this.shops[0].s_color);
-          console.log(this.shops);
         }
       })
       .catch((error) => {

@@ -2,7 +2,6 @@
   <div class="data">
     <nav-bar class="goods-navbar" activeIndex="8"></nav-bar>
     <div class="data-container">
-        
       <div class="data-container-item">
         <goods></goods>
       </div>

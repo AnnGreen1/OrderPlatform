@@ -236,8 +236,6 @@ export default {
         return item;
       }
     });
-    // this.goodtype = goodtype[localStorage.getItem("shopid")];
-    console.log(this.goodtype);
     this.pagedata();
   },
 };
