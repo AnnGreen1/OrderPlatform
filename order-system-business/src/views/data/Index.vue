@@ -56,7 +56,7 @@ export default {
     width: calc(100vw - 210px);
     overflow: auto;
     &-item{
-        width:900px;
+        width:1100px;
         height:400px;
     }
   }

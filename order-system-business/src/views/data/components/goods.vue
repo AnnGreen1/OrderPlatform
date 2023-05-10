@@ -26,7 +26,7 @@ export default {
         legend: {
           // 图例
           data: this.pieName,
-          right: "1%",
+          right: "-10%",
           top: "30%",
           orient: "vertical",
         },

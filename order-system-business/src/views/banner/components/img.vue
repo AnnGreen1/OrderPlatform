@@ -50,11 +50,11 @@ export default {
         this.form.url = response.data.url;
         this.form.imgurl = response.data.name;
         this.$message({
-          message: "恭喜你，这是一条成功消息",
+          message: "上传成功！",
           type: "success",
         });
       } else {
-        this.$message.error("错了哦，这是一条错误消息");
+        this.$message.error("上传失败！");
       }
     },
     addimgfun() {

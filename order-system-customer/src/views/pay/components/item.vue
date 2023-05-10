@@ -8,7 +8,7 @@
     <div class="item-body">
       <div class="item-body-good" v-for="(item, index) in goods" :key="index">
         <div class="item-body-good-name">{{ item.g_dishName }}</div>
-        <div class="item-body-good-price">{{ item.f_num }} ￥{{ item.f_price }}</div>
+        <div class="item-body-good-price">{{ item.f_num }} ￥{{ (item.f_price/100).toFixed(2) }}</div>
       </div>
       <!-- <div class="item-body-good">
         <div class="item-body-good-name">三鲜火锅</div>
@@ -68,7 +68,7 @@ export default {
   methods: {
     formatterTime(row) {
       console.log(row);
-      var date = new Date(row);
+      var date = new Date(row*1000);
       console.log(date);
       console.log(date.getFullYear());
       return date.toLocaleString();
@@ -78,7 +78,7 @@ export default {
       this.goods.forEach((item) => {
         total += item.f_price;
       });
-      return total;
+      return (total/100).toFixed(2);
     },
     payfun() {
       Dialog.confirm({

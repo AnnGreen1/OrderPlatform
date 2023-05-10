@@ -18,8 +18,8 @@ $groupstatus = $_GET['groupstatus'];
 $sql_bannergroup = "";
 if($groupstatus == 1){
     $sql_bannergroup = "SELECT group_id, group_name, group_status FROM `bannergroup` where shop_id= $shopid and group_status = 1 group by group_id ";
-}else if($groupstatus == 2){
-    $sql_bannergroup = "SELECT group_id, group_name, group_status FROM `bannergroup` where shop_id= $shopid and group_status = 2 group by group_id ";
+}else if($groupstatus == 0){
+    $sql_bannergroup = "SELECT group_id, group_name, group_status FROM `bannergroup` where shop_id= $shopid and group_status = 0 group by group_id ";
 }else{
     $sql_bannergroup = "SELECT group_id, group_name, group_status FROM `bannergroup` where shop_id= $shopid group by group_id ";
 }

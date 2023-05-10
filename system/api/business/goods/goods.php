@@ -25,10 +25,12 @@ $total = "select count(*) total from goods where g_shopid = $shopid and g_dishNa
 $sql_goods = "select * from goods where g_shopid = $shopid and g_dishName like '%$g_dishName%' ";
 if ($g_status != 2) {
     $sql_goods =$sql_goods. "and g_status = $g_status ";
+    $total =$total. "and g_status = $g_status ";
 }
 
 if ($g_type != 0) {
     $sql_goods =$sql_goods. "and g_type = $g_type ";
+    $total =$total. "and g_type = $g_type ";
 }
 
 // echo $sql_shop;

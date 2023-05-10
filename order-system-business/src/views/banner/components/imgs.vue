@@ -17,7 +17,7 @@
         <el-table-column prop="banner_height" label="高度"> </el-table-column>
         <el-table-column prop="banner_width" label="宽度"> </el-table-column>
         <el-table-column prop="banner_location" label="位置"> </el-table-column>
-        <el-table-column fixed="right" label="操作" width="150">
+        <el-table-column fixed="right" label="操作" width="150" v-if="!group_id">
           <template slot-scope="scope">
             <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
             <el-button type="text" size="small" v-if="!group_id" @click="addbanner(scope.row)">添加banner</el-button>
@@ -115,6 +115,8 @@ export default {
     },
   },
   created() {
+    this.tableData = [];
+    console.log(this.group_id);
     this.group_id_temp = this.group_id;
     if (!this.group_id) this.group_id_temp = "";
     this.pagedata(this.pageIndex, this.pageSize);

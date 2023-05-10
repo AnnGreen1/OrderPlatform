@@ -23,9 +23,9 @@ export default {
         textColor: "#fff",
         activeTextColor: "blue",
       },
-      // activeStyle: {
-      //   color: localStorage.getItem('shopcolor')
-      // },
+      activeStyle: {
+        // color: localStorage.getItem('shopcolor')
+      },
       menuItems: [
         {
           index: 1,
@@ -62,20 +62,20 @@ export default {
           title: "订单管理",
           route: { path: "/cart" }
         },
-        {
-          index: 6,
-          disable: false,
-          icon: "el-icon-document",
-          title: "原料管理",
-          route: { path: "/banner" }
-        },
-        {
-          index: 7,
-          disable: false,
-          icon: "el-icon-document",
-          title: "tabbar",
-          route: { path: "/banner" }
-        },
+        // {
+        //   index: 6,
+        //   disable: false,
+        //   icon: "el-icon-document",
+        //   title: "原料管理",
+        //   route: { path: "/banner" }
+        // },
+        // {
+        //   index: 7,
+        //   disable: false,
+        //   icon: "el-icon-document",
+        //   title: "tabbar",
+        //   route: { path: "/banner" }
+        // },
         {
           index: 8,
           disable: false,

@@ -45,7 +45,7 @@
           <el-table-column prop="g_price" label="价格">
             <template slot-scope="scope"> ￥{{ (scope.row.g_price / 100).toFixed(2) }} </template>
           </el-table-column>
-          <el-table-column fixed="right" label="操作" width="150">
+          <el-table-column fixed="right" label="操作" width="150" v-if="false">
             <template>
               <el-button type="text" size="small">删除</el-button>
               <el-button type="text" size="small">修改</el-button>

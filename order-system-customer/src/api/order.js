@@ -15,7 +15,7 @@ export const goods = data => {
 export const neworder = data => {
     data = data || {};
     return request({
-        url: `${base}/order/neworder.php`,
+        url: `nodejs/order/neworder`,
         method: "post",
         data
     })

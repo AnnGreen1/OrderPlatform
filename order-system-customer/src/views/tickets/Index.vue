@@ -1,11 +1,10 @@
 <template>
     <div>
-        <h1>ticket</h1>
+        <h1>tickets</h1>
     </div>
 </template>
 
 <script>
-import { initBanner } from "@/api/home";
 export default {
   data() {
     return {
@@ -14,16 +13,7 @@ export default {
   },
   methods: {},
   created() {
-    initBanner()
-      .then((res) => {
-        console.log(res);
-        if (res && res.code == 1001 && res.data) {
-          this.banner = res.data;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    
   },
 };
 </script>

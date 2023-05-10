@@ -27,7 +27,7 @@
 <script>
 import goodtype from "@/utils/enum";
 import { goods, neworder } from "@/api/order";
-import { Dialog } from "vant";
+import { Dialog, Toast } from "vant";
 export default {
   data() {
     return {
@@ -85,8 +85,8 @@ export default {
     },
     onSubmit() {
       Dialog.confirm({
-        title: "确认提交",
-        message: "弹窗内容",
+        title: "确认提交订单？",
+        message: "",
       })
         .then(() => {
           let nums = [];
@@ -124,7 +124,7 @@ export default {
             }).then((res) => {
               console.log(res);
               if (res.code == 14) {
-                console.log('成功给你');
+                Toast.success('成功创建订单！');
               }
             })
             .catch((error) => {

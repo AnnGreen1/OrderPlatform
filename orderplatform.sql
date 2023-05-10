@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 22/03/2023 21:40:04
+ Date: 10/05/2023 22:15:07
 */
 
 SET NAMES utf8mb4;
@@ -47,7 +47,7 @@ CREATE TABLE `banner`  (
   `banner_width` double NOT NULL,
   `banner_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`banner_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of banner
@@ -56,12 +56,13 @@ INSERT INTO `banner` VALUES (1, 'ad_10years.jpg', 653, 1400, '1');
 INSERT INTO `banner` VALUES (2, 'ad_feikuai.jpg', 653, 1400, '1');
 INSERT INTO `banner` VALUES (3, 'ad_zhuanxingsong.jpg', 653, 1400, '1');
 INSERT INTO `banner` VALUES (4, 'jfalskd.png', 234, 74893, 'http://www.fjalkdf.com/fasdf.png');
-INSERT INTO `banner` VALUES (5, 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/banner/GAKKI.png', 44444444444, 444444444, 'www.baidu.com');
-INSERT INTO `banner` VALUES (6, 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/banner/img-1640860928489a54e4b5b085aadf2ff618046a8e0eae3.jpg', 22222, 22222, 'www.baidu.com');
+INSERT INTO `banner` VALUES (5, 'GAKKI.png', 44444444444, 444444444, 'www.baidu.com');
+INSERT INTO `banner` VALUES (6, 'img-1640860928489a54e4b5b085aadf2ff618046a8e0eae3.jpg', 22222, 22222, 'www.baidu.com');
 INSERT INTO `banner` VALUES (7, 'img-1640860867097beedf4d68b78f44ccf63cf4c3a108cc9.jpg', 23, 34, 'wwwwww.bbbbaidduuu.commmm');
 INSERT INTO `banner` VALUES (8, 'img_0144.jpg', 23, 3, 'wwww.baidu.cccccc');
 INSERT INTO `banner` VALUES (9, 'flowers.jpg', 23, 23, 'rrrrr.baid.cooo.org');
 INSERT INTO `banner` VALUES (10, 'img-16408608730070d6aa1d00db1e046e45a5628db3c341c.jpg', 23, 23, 'eeeee.org');
+INSERT INTO `banner` VALUES (11, '20151130034835226.jpg.source.jpg', 1920, 1200, 'https://www.baidu.com');
 
 -- ----------------------------
 -- Table structure for bannergroup
@@ -75,7 +76,7 @@ CREATE TABLE `bannergroup`  (
   `group_status` int NULL DEFAULT NULL,
   `shop_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of bannergroup
@@ -91,6 +92,15 @@ INSERT INTO `bannergroup` VALUES (8, 5, 4, '新建的banner组', 0, 1);
 INSERT INTO `bannergroup` VALUES (9, 5, 8, '新建的banner组', 0, 1);
 INSERT INTO `bannergroup` VALUES (10, 6, 1, 'testtesttest', 0, 1);
 INSERT INTO `bannergroup` VALUES (11, 6, 3, 'testtesttest', 0, 1);
+INSERT INTO `bannergroup` VALUES (12, 7, 1, 'fadsf ', 0, 1);
+INSERT INTO `bannergroup` VALUES (13, 7, 2, 'fadsf ', 0, 1);
+INSERT INTO `bannergroup` VALUES (14, 8, 1, '这是banner组名', 0, 1);
+INSERT INTO `bannergroup` VALUES (15, 8, 2, '这是banner组名', 0, 1);
+INSERT INTO `bannergroup` VALUES (16, 8, 3, '这是banner组名', 0, 1);
+INSERT INTO `bannergroup` VALUES (17, 9, 3, '新建banner测试', 0, 1);
+INSERT INTO `bannergroup` VALUES (18, 9, 11, '新建banner测试', 0, 1);
+INSERT INTO `bannergroup` VALUES (19, 10, 7, '发大财', 0, 1);
+INSERT INTO `bannergroup` VALUES (20, 10, 6, '发大财', 0, 1);
 
 -- ----------------------------
 -- Table structure for form
@@ -108,27 +118,27 @@ CREATE TABLE `form`  (
   `f_s_id` int NULL DEFAULT NULL,
   `f_tableid` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of form
 -- ----------------------------
-INSERT INTO `form` VALUES (1, 1679483755, 'lesw7vz502', 100, 3, 1, 2, 1679483755, 1, 1);
-INSERT INTO `form` VALUES (2, 1679483755, 'lesw7vz502', 50, 3, 2, 1, 1679483755, 1, 1);
-INSERT INTO `form` VALUES (3, 1679483755, 'lesw7vz502', 300, 3, 3, 6, 1679483755, 1, 1);
-INSERT INTO `form` VALUES (4, 1679397355, 'lesw7vz502', 100, 3, 1, 2, 1679397355, 1, 1);
-INSERT INTO `form` VALUES (5, 1679397355, 'lesw7vz502', 50, 3, 2, 1, 1679397355, 1, 1);
-INSERT INTO `form` VALUES (6, 1679397355, 'lesw7vz502', 300, 3, 3, 6, 1679397355, 1, 1);
-INSERT INTO `form` VALUES (7, 1679397355, 'lesw7vz502', 100, 1, 1, 2, 1679397355, 1, 1);
-INSERT INTO `form` VALUES (8, 1679310955, 'lesw7vz502', 100, 2, 1, 2, 1679310955, 1, 1);
-INSERT INTO `form` VALUES (9, 1679138155, 'lesw7vz502', 100, 0, 1, 2, 1679138155, 1, 1);
+INSERT INTO `form` VALUES (1, 1681723093, 'lesw7vz502', 100, 3, 1, 2, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (2, 1681723093, 'lesw7vz502', 50, 3, 2, 1, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (3, 1681723093, 'lesw7vz502', 300, 3, 3, 6, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (4, 1681723093, 'lesw7vz502', 100, 3, 1, 2, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (5, 1681723093, 'lesw7vz502', 50, 3, 2, 1, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (6, 1681723093, 'lesw7vz502', 300, 3, 3, 6, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (7, 1681723093, 'lesw7vz502', 100, 3, 1, 2, 1681723093, 1, 1);
+INSERT INTO `form` VALUES (8, 1679310955, 'lesw7vz502', 100, 3, 1, 2, 1679310955, 1, 1);
+INSERT INTO `form` VALUES (9, 1679138155, 'lesw7vz502', 100, 1, 1, 2, 1679138155, 1, 1);
 INSERT INTO `form` VALUES (10, 1679224555, 'lesw7vz502', 100, 0, 1, 2, 1679224555, 1, 1);
-INSERT INTO `form` VALUES (11, 1679051755, 'lesw7vz502', 100, 0, 1, 2, 1679051755, 1, 1);
-INSERT INTO `form` VALUES (12, 1679051755, 'lesw7vz502', 50, 0, 2, 1, 1679051755, 1, 1);
-INSERT INTO `form` VALUES (13, 1679051755, 'lesw7vz502', 300, 0, 3, 6, 1679051755, 1, 1);
-INSERT INTO `form` VALUES (14, 1679015755, 'lesw7vz502', 100, 0, 1, 2, 1679015755, 1, 1);
-INSERT INTO `form` VALUES (15, 1679015755, 'lesw7vz502', 50, 0, 2, 1, 1679015755, 1, 1);
-INSERT INTO `form` VALUES (16, 1679015755, 'lesw7vz502', 300, 0, 3, 6, 1679015755, 1, 1);
+INSERT INTO `form` VALUES (11, 1681550293, 'lesw7vz502', 100, 0, 1, 2, 1681550293, 1, 1);
+INSERT INTO `form` VALUES (12, 1681550293, 'lesw7vz502', 50, 0, 2, 1, 1681550293, 1, 1);
+INSERT INTO `form` VALUES (13, 1681550293, 'lesw7vz502', 300, 0, 3, 6, 1681550293, 1, 1);
+INSERT INTO `form` VALUES (14, 1681550293, 'lesw7vz502', 100, 0, 1, 2, 1681550293, 1, 1);
+INSERT INTO `form` VALUES (15, 1681550293, 'lesw7vz502', 50, 0, 2, 1, 1681550293, 1, 1);
+INSERT INTO `form` VALUES (16, 1681550293, 'lesw7vz502', 300, 0, 3, 6, 1681550293, 1, 1);
 INSERT INTO `form` VALUES (17, 1678929355, 'lesw7vz502', 100, 0, 1, 2, 1678929355, 1, 1);
 INSERT INTO `form` VALUES (18, 1678929355, 'lesw7vz502', 50, 0, 2, 1, 1678929355, 1, 1);
 INSERT INTO `form` VALUES (19, 1678929355, 'lesw7vz502', 300, 0, 3, 6, 1678929355, 1, 1);
@@ -138,6 +148,41 @@ INSERT INTO `form` VALUES (22, 1678842955, 'lesw7vz502', 300, 0, 3, 6, 167884295
 INSERT INTO `form` VALUES (23, 1678756555, 'lesw7vz502', 100, 0, 1, 2, 1678756555, 1, 1);
 INSERT INTO `form` VALUES (24, 1678756555, 'lesw7vz502', 50, 0, 2, 1, 1678756555, 1, 1);
 INSERT INTO `form` VALUES (25, 1678756555, 'lesw7vz502', 300, 0, 3, 6, 1678756555, 1, 1);
+INSERT INTO `form` VALUES (26, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (27, 2147483647, 'lesw7vz502', 10000, 0, 0, 2, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (28, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (29, 2147483647, 'lesw7vz502', 10000, 0, 0, 2, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (30, 2147483647, 'lesw7vz502', 5000, 0, 1, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (31, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (32, 2147483647, 'lesw7vz502', 10000, 0, 0, 2, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (33, 2147483647, 'lesw7vz502', 5000, 0, 1, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (34, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (35, 2147483647, 'lesw7vz502', 10000, 0, 0, 2, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (36, 2147483647, 'lesw7vz502', 5000, 0, 1, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (37, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (38, 2147483647, 'lesw7vz502', 10000, 0, 0, 2, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (39, 2147483647, 'lesw7vz502', 5000, 0, 1, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (40, 2147483647, 'lesw7vz502', 0, 0, 44, 1, 2147483647, 1, 3);
+INSERT INTO `form` VALUES (41, 1683551884, 'lesw7vz502', 10000, 0, 0, 2, 1683551884, 1, 3);
+INSERT INTO `form` VALUES (42, 1683551884, 'lesw7vz502', 5000, 0, 1, 1, 1683551884, 1, 3);
+INSERT INTO `form` VALUES (43, 1683551884, 'lesw7vz502', 0, 0, 44, 1, 1683551884, 1, 3);
+INSERT INTO `form` VALUES (44, 1683551884, 'lesw7vz502', 10000, 0, 0, 2, 1683551884, 1, 3);
+INSERT INTO `form` VALUES (45, 1683646662, 'lesw7vz502', 5000, 0, 1, 1, 1683646662, 1, 3);
+INSERT INTO `form` VALUES (46, 1683646662, 'lesw7vz502', 0, 0, 44, 1, 1683646662, 1, 3);
+INSERT INTO `form` VALUES (47, 1683646662, 'lesw7vz502', 10000, 0, 0, 2, 1683646662, 1, 3);
+INSERT INTO `form` VALUES (48, 1683646662, 'lesw7vz502', 5000, 0, 1, 1, 1683646662, 1, 3);
+INSERT INTO `form` VALUES (49, 1683649671, 'lesw7vz502', 5000, 0, 4, 1, 1683649671, 1, 3);
+INSERT INTO `form` VALUES (50, 1683649671, 'lesw7vz502', 10000, 0, 5, 2, 1683649671, 1, 3);
+INSERT INTO `form` VALUES (51, 1683649696, 'lesw7vz502', 5000, 0, 4, 1, 1683649696, 1, 3);
+INSERT INTO `form` VALUES (52, 1683649696, 'lesw7vz502', 10000, 0, 5, 2, 1683649696, 1, 3);
+INSERT INTO `form` VALUES (53, 1683721976, 'mxl03g0xnco', 3000, 1, 42, 1, 1683721976, 1, 3);
+INSERT INTO `form` VALUES (54, 1683721976, 'mxl03g0xnco', 9999, 1, 43, 1, 1683721976, 1, 3);
+INSERT INTO `form` VALUES (55, 1683722076, 'mxl03g0xnco', 5000, 3, 3, 1, 1683722076, 1, 3);
+INSERT INTO `form` VALUES (56, 1683722076, 'mxl03g0xnco', 5000, 3, 4, 1, 1683722076, 1, 3);
+INSERT INTO `form` VALUES (57, 1683722076, 'mxl03g0xnco', 10000, 3, 5, 2, 1683722076, 1, 3);
+INSERT INTO `form` VALUES (58, 1683722238, 'mxl03g0xnco', 40000, 1, 41, 2, 1683722238, 1, 3);
+INSERT INTO `form` VALUES (59, 1683722238, 'mxl03g0xnco', 10000, 1, 9, 2, 1683722238, 1, 3);
+INSERT INTO `form` VALUES (60, 1683722238, 'mxl03g0xnco', 5000, 1, 10, 1, 1683722238, 1, 3);
 
 -- ----------------------------
 -- Table structure for goods
@@ -170,7 +215,7 @@ INSERT INTO `goods` VALUES (6, '真香锅', 1, '采用植物油和少量牛油�
 INSERT INTO `goods` VALUES (7, '牛肉汤火锅', 1, '使用萃取工艺，将鸡骨、牛骨浓缩为风味骨汤；搭配大块牛肉和新鲜白萝卜， \r\n鲜香味美，牛肉汤风味浓郁。', 'https://website.hdlcdns.com/website/image/13b25c5d78954a29aedb2b2e01c4f812-396-543.jpg', 2147483647, 2147483647, 1, 1, 5000);
 INSERT INTO `goods` VALUES (8, '海底捞泡菜鸭锅', 1, '酸辣突出，泡菜香味浓郁', 'https://website.hdlcdns.com/website/image/b391ba1b4f3048c49a41e21d0fdb4c04-396-543.jpg', 2147483647, 2147483647, 1, 1, 5000);
 INSERT INTO `goods` VALUES (9, '捞派魔芋素毛肚', 1, '海底捞全新推出素毛肚，从此“毛肚”放肆吃，口感Q弹，8秒就涮好。', 'https://website.hdlcdns.com/website/image/22b537a88f814392b4b24202a8cb3eb1-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
-INSERT INTO `goods` VALUES (10, '过足肉 \r\n瘾大块羊肋排', 1, '只选用12个月以内的羔羊肋排部位，不拆骨白卤入味，根根贴骨肉，更香更过瘾。', 'https://website.hdlcdns.com/website/image/790f515ed3494c1db21cd885dc6a9eb3-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
+INSERT INTO `goods` VALUES (10, '过足肉 瘾大块羊肋排', 1, '只选用12个月以内的羔羊肋排部位，不拆骨白卤入味，根根贴骨肉，更香更过瘾。', 'https://website.hdlcdns.com/website/image/790f515ed3494c1db21cd885dc6a9eb3-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
 INSERT INTO `goods` VALUES (11, '海底\r\n捞咯吱咯吱贡菜丸子', 1, '选用优质猪腿、鸡腿肉，搭配干贡菜手工制作肉丸，贡菜的爽口，咯吱咯吱，香而不腻。', 'https://website.hdlcdns.com/website/image/594e681ab7854d349069919b7e825ce1-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
 INSERT INTO `goods` VALUES (12, '嫩滑黑鱼片', 1, '选用大片黑鱼肉，肉质鲜嫩，口感更弹韧。', 'https://website.hdlcdns.com/website/image/08687dbca37e48b1906f669dcc659c5b-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
 INSERT INTO `goods` VALUES (13, '捞派生鸭血', 1, '低温锁鲜，口感嫩滑 \r\n，你吃一口就知道。', 'https://website.hdlcdns.com/website/image/417d77ef9f214e86bbc281486a278f4c-396-543.jpg', 2147483647, 2147483647, 2, 1, 5000);
@@ -200,10 +245,10 @@ INSERT INTO `goods` VALUES (36, '热卤耙鸡爪', 1, '卤香十足、口感软�
 INSERT INTO `goods` VALUES (37, '热卤耙肥肠', 1, '口感劲道，卤味独特。', 'https://website.hdlcdns.com/website/image/41d044612a6e4088b16346b4b7ed3221-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
 INSERT INTO `goods` VALUES (38, '热卤大片素板筋', 1, '筋道弹韧 吮指回味（微辣）', 'https://website.hdlcdns.com/website/image/93cd4a3b0cc74c30ac7dd17b2289261d-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
 INSERT INTO `goods` VALUES (39, '热卤四大天王', 1, '卤香浓郁、肥而不腻（微辣）', 'https://website.hdlcdns.com/website/image/259375dbcb854062b3a187deba56f09c-396-543.png', 2147483647, 2147483647, 5, 1, 5000);
-INSERT INTO `goods` VALUES (41, '测试测试测试火锅', 1, '测试测试火锅的描述', 'http://hfkajfdadf.iifadskf.jpg', 1679469557, 1679469557, 1, 1, 20000);
-INSERT INTO `goods` VALUES (42, '商品名', 0, '描述', 'boat.jpg', 1679470934, NULL, 0, 1, 0);
-INSERT INTO `goods` VALUES (43, '图片测试', 0, '名名', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/7.jpg', 1679471011, NULL, 0, 1, 0);
-INSERT INTO `goods` VALUES (44, '应该没有问题', 0, '秒怂虎', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/img-16408608730070d6aa1d00db1e046e45a5628db3c341c.jpg', 1679471135, NULL, 0, 1, 0);
+INSERT INTO `goods` VALUES (41, '测试测试测试火锅', 1, '测试测试火锅的描述', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/ecosystem.png', 1679469557, 1679469557, 1, 1, 20000);
+INSERT INTO `goods` VALUES (42, '商品名', 0, '描述', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/boat.jpg', 1679470934, NULL, 0, 1, 3000);
+INSERT INTO `goods` VALUES (43, '图片测试', 0, '名名', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/7.jpg', 1679471011, NULL, 0, 1, 9999);
+INSERT INTO `goods` VALUES (44, '应该没有问题', 0, '秒怂虎', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/img-16408608730070d6aa1d00db1e046e45a5628db3c341c.jpg', 1679471135, NULL, 0, 1, 6666);
 INSERT INTO `goods` VALUES (45, '名', 0, '描述', 'http://localhost/allPHPCode/OrderPlatform/system/resource/shop/goods/cat.jpeg', 1679471288, NULL, 5, 1, 2323);
 
 -- ----------------------------
@@ -286,7 +331,7 @@ CREATE TABLE `user`  (
   `u_avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `u_shopid` int NULL DEFAULT NULL,
   PRIMARY KEY (`u_id`, `u_username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -303,5 +348,6 @@ INSERT INTO `user` VALUES (9, 'anvkm1ba0cw', 0, 111111, 0, 1679369930, 'anngreen
 INSERT INTO `user` VALUES (10, 'anvkm1ba0cw', 0, 111111, 0, 1679369944, 'anngreen.jpeg', 1);
 INSERT INTO `user` VALUES (11, 'undefined', 0, 111111, 0, 1679370068, 'anngreen.jpeg', 1);
 INSERT INTO `user` VALUES (12, 'lesw7vz502', 0, 111111, 0, 1679370165, 'anngreen.jpeg', 1);
+INSERT INTO `user` VALUES (13, 'v2b14etimjk', 0, 111111, 0, 1682420136, 'anngreen.jpeg', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
