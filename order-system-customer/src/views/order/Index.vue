@@ -9,7 +9,7 @@
         <!-- <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img01.yzcdn.cn/vant/ipad.jpeg" /> -->
         <van-card v-for="(item, index) in goods" :key="index" :price="(item.g_price / 100).toFixed(2)" :desc="item.g_dishDesc" :title="item.g_dishName" :thumb="item.g_imgUrl">
           <template #footer>
-            <van-button size="mini" @click="minus(index)" :disabled="num[index] === 0">
+            <van-button size="mini" @click="minus(index)" :disabled="num.includes(item => item>0)">
               <van-icon name="minus" />
             </van-button>
             <span>{{ num[index] }}</span>
@@ -53,11 +53,12 @@ export default {
     },
     scroll(event) {
       console.log("scroll");
-      let top = event.target.scrollTop;
-      console.log(top);
+     
+      event.target.scrollTop;
+      // console.log(top);
       this.$refs.goods.scrollHeight;
       this.$refs.goods.scrollTop;
-      console.log(this.$refs.goods.scrollHeight + " " + this.$refs.goods.scrollTop);
+      // console.log(this.$refs.goods.scrollHeight + " " + this.$refs.goods.scrollTop);
     },
     minus(index) {
       console.log(index);
@@ -100,8 +101,14 @@ export default {
           console.log(nums);
           console.log(gids);
           let price = [];
-          for (i = 0; i < nums.length; i++) {
-            price.push(nums[i] * this.goods[i].g_price);
+          console.log(this.goods);
+          for (i = 0; i < gids.length; i++) {
+            console.log(nums[i]);
+            let good = this.goods.find(item =>{
+              return item.g_id === gids[i] 
+            })
+            console.log(good);
+            price.push(nums[i] * good.g_price);
           }
           console.log(nums);
           console.log(gids);

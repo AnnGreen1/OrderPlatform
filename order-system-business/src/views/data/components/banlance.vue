@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="fun">渲染</button>
     <div class="echart" id="mycharts" :style="myChartStyle"></div>
   </div>
 </template>
@@ -11,7 +10,6 @@ import { balance } from "@/api/data";
 export default {
   data() {
     return {
-      data: [],
       xData: [], //横坐标
       yData: [], //数据
       myChartStyle: { float: "left", width: "100%", height: "400px" }, //图表样式
@@ -56,20 +54,10 @@ export default {
       }
       console.log("最近七天日期：", this.xData);
     },
-    fun() {
-      this.data.forEach((item) => {
-        console.log(item);
-        this.yData.push(item);
-      });
-      this.$nextTick(() => {
-        this.initEcharts();
-      });
-    },
   },
-  created() {
+  async created() {
     this.getday2();
     let time = 0;
-    let data = [];
     while (time < 7) {
       const date = new Date();
       const y = date.getFullYear();
@@ -81,17 +69,20 @@ export default {
         begin: (today.getTime() - time * 24 * 60 * 60 * 1000 + 1 - ((today.getTime() - (time + 1) * 24 * 60 * 60 * 1000 + 1) % 1000)) / 1000 - 24 * 60 * 60 + 1,
         end: (today.getTime() - time * 24 * 60 * 60 * 1000 + 1 - ((today.getTime() - (time + 1) * 24 * 60 * 60 * 1000 + 1) % 1000)) / 1000,
       };
-      balance(randqinghua_data)
+      await balance(randqinghua_data)
         .then((res) => {
           console.log(res.data.goods.price);
-          data.push(parseInt(res.data.goods.price));
+          this.yData.unshift(parseInt(res.data.goods.price)/100);
         })
         .catch((error) => {
           console.log(error);
         });
       time++;
     }
-    this.data = data;
+    console.log(this.yData);
+    this.$nextTick(() => {
+      this.initEcharts();
+    });
   },
 };
 </script>

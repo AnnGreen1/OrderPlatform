@@ -21,11 +21,11 @@ export default {
       menu: {
         bgColor: "#2B3246",
         textColor: "#fff",
-        activeTextColor: "pink",
+        activeTextColor: "blue",
       },
-      activeStyle: {
-        color: localStorage.getItem('shopcolor')
-      },
+      // activeStyle: {
+      //   color: localStorage.getItem('shopcolor')
+      // },
       menuItems: [
         {
           index: 1,
@@ -115,9 +115,9 @@ export default {
       this.$router.push(route)
     }
   },
-  created() { 
-    console.log(this.activeStyle);
-  },
+  // created() { 
+  //   console.log(this.activeStyle);
+  // },
 };
 </script>
 
