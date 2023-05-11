@@ -47,3 +47,12 @@ export const addbannergroup = data => {
         data
     })
 };
+
+export const usebanner = data => {
+    data = data || {};
+    return request({
+        url: `${base}/banner/usebanner.php?groupid=${data.groupid}&shopid=${data.shopid}`,
+        method: "post",
+        data
+    })
+};

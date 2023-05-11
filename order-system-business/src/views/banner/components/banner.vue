@@ -18,20 +18,20 @@
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button @click="bannerDetialFun(scope.row)" type="text" size="small">查看</el-button>
-            <!-- <el-button type="text" size="small" v-if="scope.group_status == 0">使用</el-button>
-            <el-button type="text" size="small" v-else>禁用</el-button> -->
+            <el-button @click="userbannerFun(scope.row)" type="text" size="small" v-if="scope.row.group_status == 0">使用</el-button>
+            <!-- <el-button type="text" size="small" v-else>禁用</el-button> -->
           </template>
         </el-table-column>
       </el-table>
     </div>
-    <el-dialog title="提示" :visible.sync="dialogVisible"  >
+    <el-dialog :visible.sync="dialogVisible"  >
       <cimgs :group_id="bannerDetialing" v-if="dialogVisible"></cimgs>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { banner } from "@/api/banner";
+import { banner, usebanner } from "@/api/banner";
 import imgs from "@/views/banner/components/imgs.vue";
 export default {
   data() {
@@ -102,6 +102,17 @@ export default {
       console.log(this.bannerDetialing);
       this.dialogVisible = true;
     },
+    userbannerFun(row){
+      usebanner({groupid:row.group_id,shopid:localStorage.getItem('shopid')}).then((res) => {
+          console.log(res);
+          if (res.code == 1) {
+            this.query()
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   },
   created() {
     this.query();

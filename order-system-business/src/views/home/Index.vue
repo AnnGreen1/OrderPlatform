@@ -52,7 +52,7 @@ export default {
             item.checked = false;
           });
           this.shops[0].checked = true;
-          this.nowshop = res.shops[0];
+          this.nowshop = res.shops[0].s_id;
           localStorage.setItem("shopid", this.shops[0].s_id);
         }
       })

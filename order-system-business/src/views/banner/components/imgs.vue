@@ -25,7 +25,7 @@
         </el-table-column>
       </el-table>
       <el-pagination background layout="total, prev, pager, next" :total="total" :page-size="pageSize" :current-page="pageIndex" @prev-click="prev" @next-click="next"> </el-pagination>
-      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+      <el-dialog title="添加图片" :visible.sync="dialogVisible" width="30%">
         <cimg @changeVisible="changeVsibleFun"></cimg>
       </el-dialog>
     </div>
